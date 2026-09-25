@@ -1,7 +1,7 @@
-import { LOCATIONS, CITY_DOTTOMONS, PALACE_DOTTOMONS, ALL_DOTTOMONS, COSTS } from './data/locations.js';
+import { LOCATIONS, CITY_DOTTOMONS, PALACE_DOTTOMONS, ALL_DOTTOMONS, COSTS, MISSION_SECONDS, SAFE_CHANCE } from './data/locations.js?v=0.2';
 
 export function initialState() {
-  return {phase:'title', intro:0, region:'city', location:'plaza', timeRemaining:1800, stress:0,
+  return {phase:'title', intro:0, region:'city', location:'plaza', timeRemaining:MISSION_SECONDS, stress:0,
     cigarettes:0, recovered:0, capturedDottomons:[], palaceEntered:false, secretEndingArmed:false,
     locationsVisited:{}, marinaHintUsed:false, albedoHintUsed:false, durinHintUsed:false,
     hint:null, attempts:{}, result:null, ending:null, endingSummary:null};
@@ -29,9 +29,9 @@ function checkEnding(s, secretTriggered=false) {
   else if (s.recovered === 7) finish(s,'good');
   else if (s.timeRemaining <= 0) finish(s,s.palaceEntered ? 'breach' : 'home');
 }
-function stressEvent(s) {
+function stressEvent(s, risky=false) {
   if (s.secretEndingArmed) return true;
-  s.stress += 50;
+  s.stress = risky ? 100 : s.stress + 50;
   if (s.stress >= 100) {
     spend(s,COSTS.smoking);
     s.stress = 0;
@@ -79,16 +79,14 @@ export function transition(previous, action, random=Math.random) {
     if (!['safe','risky'].includes(action.method)) return previous;
     const target = remainingAt(s,s.location)[0];
     if (!target) return previous;
-    const tutorial = s.location==='pastry';
-    if (tutorial && action.method !== 'safe') return previous;
-    const success = tutorial || action.method==='risky' || random()<0.5;
+    const success = action.method==='risky' || random()<SAFE_CHANCE;
     const baseCost = success ? COSTS.capture : COSTS.failure;
     s.result={success,method:action.method,target,smoking:false,cost:baseCost,unlocked:false};
     s.attempts[s.location]=(s.attempts[s.location]||0)+1;
     spend(s,baseCost);
     if (success) {s.capturedDottomons.push(target); s.recovered=s.capturedDottomons.length;}
     let secretTriggered=false;
-    if (!tutorial && (!success || action.method==='risky')) secretTriggered=stressEvent(s);
+    if (!success || action.method==='risky') secretTriggered=stressEvent(s,action.method==='risky');
     if (s.result.smoking) s.result.cost+=COSTS.smoking;
     s.result.unlocked = !cityComplete(previous) && cityComplete(s);
     s.phase='result'; checkEnding(s,secretTriggered); return s;
@@ -102,7 +100,7 @@ export function transition(previous, action, random=Math.random) {
 }
 
 export function assertState(s) {
-  if (!Number.isInteger(s.timeRemaining) || s.timeRemaining<0 || s.timeRemaining>1800) throw Error('Invalid time');
+  if (!Number.isInteger(s.timeRemaining) || s.timeRemaining<0 || s.timeRemaining>MISSION_SECONDS) throw Error('Invalid time');
   if (![0,50].includes(s.stress)) throw Error('Stress must settle to 0 or 50');
   if (s.cigarettes<0 || s.cigarettes>5) throw Error('Invalid cigarette count');
   if (s.secretEndingArmed !== (s.cigarettes===5)) throw Error('Secret arming mismatch');
