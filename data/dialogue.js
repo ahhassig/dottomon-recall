@@ -1,7 +1,7 @@
 export const OPENING = [
   {eyebrow:'Earlier · Zapolyarny Palace',title:'One very reasonable request.',scene:'laboratory',lines:[
     'Zandik has dimmed every lamp except the one above his work. His migraine has made the remaining light difficult enough; twenty small assistants offering twenty simultaneous opinions would be considerably worse.',
-    ['Zandik','“The reaction needs another thirty minutes. Keep them at home until I’m finished. All twenty, Feofan.”'],
+    ['Zandik','“The reaction needs another twenty minutes. Keep them at home until I’m finished. All twenty, Feofan.”'],
     'Feofan moves the water within his husband’s reach and angles the lamp away from his eyes. The project can’t be abandoned halfway through. The audience can.',
     ['Feofan','“Finish your work. I’ll handle the assistants.”'],
     'Twenty black puffballs regard the arrangement with one red eye apiece. Blue tufts incline. Somewhere among them, a small, deeply unconvinced trill sounds.',
@@ -16,7 +16,7 @@ export const OPENING = [
     'Feofan picks up the receiver. This is a containment problem, a search problem, and an extremely short deadline. It requires help, not another count.',
     ['Feofan','“Mari. I need you at the penthouse. Bring whoever’s with you.”']
   ]},
-  {eyebrow:'Emergency babysitting · Established',title:'Seven missing. Thirty minutes.',scene:'penthouse',lines:[
+  {eyebrow:'Emergency babysitting · Established',title:'Seven missing. Twenty minutes.',scene:'penthouse',lines:[
     'Marina arrives with Albedo and Durin, the two people she happened to be with. She takes in Feofan’s expression, the thirteen puffballs, and the paperweight.',
     ['Marina','“Okay. We’ve got these thirteen. You get the escape committee.”'],
     'Albedo moves the paperweight. They study the diagram, then quietly relocate the nearest chair away from the window latch.',
@@ -35,13 +35,20 @@ export const ENCOUNTERS = {
     ['Feofan','“Am I interrupting something?”'],
     'The one nearest him gives a clipped chirp and rests an arm on the table. The other moves its pastry plate slightly farther from his coat. Neither shows the slightest intention of being embarrassed.',
     ['Feofan','“Apparently I should’ve made a reservation.”'],
-    'He pays the bill before addressing either of them again. A public disagreement is unnecessary. So is confiscating the cake. A pastry box and a little patience will do considerably more than force.',
-    'They will cooperate, separately, once their tea is finished.'
+    'He pays the bill and asks for a pastry box. He can try to persuade each guest to leave—or make a swift, certain interception before the next refill arrives.',
+    'The pair must be recovered separately. Their afternoon is apparently flexible. His is not.'
   ],remaining:[
     'One date has been safely returned to the penthouse with the pastry box. The other remains seated beside a cup that is now empty.',
     'It taps the saucer. Feofan looks at the cup, then at the creature.',
     ['Feofan','“The refill is at home.”'],
     'A small huff. The negotiation appears to be approaching its conclusion.'
+  ],failures:[
+    'A tiny arm accepts the pastry box. The rest of the Dottomon stays firmly on its chair, with one red eye fixed on the teapot. The box was accepted; the invitation was not.',
+    'It slides beneath the tablecloth and emerges on the opposite chair. Feofan keeps the aisle clear and waits. The date has acquired a seating plan.',
+    'The Dottomon presents its cup for inspection. By the time Feofan sets it safely down, the little guest has retreated behind the sugar bowl. Still in the shop. Still on the date.'
+  ],riskySuccess:[
+    'Feofan closes the gap before the Dottomon can reach the next chair. Creature and pastry box are safely sent home; the protesting trill draws every eye in the shop. He needs a moment outside.',
+    'Feofan intercepts the second guest before it can request another pot. The date is over, both assistants are home, and nothing breakable has suffered. His composure has had a more expensive afternoon.'
   ],success:[
     'The first Dottomon accepts the pastry box and goes home with all the dignity of a guest leaving at the end of a perfectly normal afternoon.',
     'The second carefully straightens its napkin before cooperating. Both halves of the date are now safely at the penthouse. Feofan leaves a generous tip.'
@@ -136,6 +143,23 @@ export const ENCOUNTERS = {
     'It relinquishes the catalyst, then slips around the far side of the cabinet to retrieve the bracket. Feofan puts the material safely away. The assistant is still in the room.',
     'The Dottomon squeezes beneath the transport tray and peeks out through the handle. Feofan checks the locked research door again before making another approach.',
     'An earnest trill accompanies a fresh attempt to show him the specification. When he reaches closer, it retreats behind the lower shelf. Its belief in the project is proving remarkably durable.'
+  ]},
+  courier:{title:'Nothing addressed to Prime.',lines:[
+    'The courier station is warm with wet wool and the smell of sealing wax. Feofan asks the clerk to check the outgoing parcels while he inspects the sorting shelves.',
+    ['Clerk','“Would your missing assistant fit in a document tube?”'],
+    ['Feofan','“I’m trying very hard not to find out.”'],
+    'The clerk has seen no small black creatures. The parcel ledger is ordinary; the shelves contain exactly what their labels promise. No red eye watches him from a pigeonhole.',
+    ['Clerk','“I can put up a notice.”'],
+    ['Feofan','“Please don’t offer a reward. They’d negotiate.”'],
+    'He thanks her and leaves the station marked clear.'
+  ]},
+  guardroom:{title:'The watch remains unchallenged.',lines:[
+    'The guardroom is quiet apart from the turning of a roster page. Feofan checks beneath the benches and behind the spare cloaks while the officer reviews the visitor log.',
+    ['Watch officer','“No creatures here, my lord. No unauthorized entries.”'],
+    ['Feofan','“And no unusually small additions to the chain of command?”'],
+    'The officer considers the question with commendable seriousness, then shakes his head.',
+    ['Watch officer','“The chain of command is its usual size.”'],
+    'The grate is fastened. The visitor book is untouched. No Dottomon has passed through this room. Feofan asks the watch to keep it that way and returns to the lobby.'
   ]},
   depot:{title:'A disappointing lack of fugitives.',lines:[
     'The depot smells of machine oil and cold iron. Feofan checks the equipment shelves while the quartermaster runs through the day’s visitors.',

@@ -499,3 +499,36 @@ dialog h2{font-size:1.75rem}
 .node-state{font-size:10px}
 
 }
+
+/* v0.2: character emblems, six-spoke maps, and paced ending scenes. */
+.speaker-icon{display:inline-grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid color-mix(in srgb,var(--speaker-color) 50%,transparent);border-radius:50%;background:radial-gradient(circle at 35% 20%,color-mix(in srgb,var(--speaker-color) 18%,transparent),#101a28);color:var(--speaker-color);box-shadow:0 0 20px #050c132b}
+.speaker-icon svg{width:32px;height:32px}
+.dialogue cite{display:flex;align-items:center;gap:12px;margin-bottom:11px}
+.dialogue:has(.speaker-icon){padding-left:0;border-left:0}
+.dialogue:has(.speaker-icon)>p{padding-left:56px}
+.dossier-speaker,.hint-speaker{display:flex;gap:10px;align-items:center}
+.dossier-speaker .speaker-icon{width:32px;height:32px}
+.dossier-speaker .speaker-icon svg{width:23px;height:23px}
+.caller .speaker-icon{width:40px;height:40px}
+.ending-scene{max-width:760px;margin:15px auto;padding:34px 36px;border-top:1px solid var(--ending-color);background:linear-gradient(145deg,color-mix(in srgb,var(--ending-color) 5%,transparent),transparent)}
+.ending-scene h1{margin:28px 0 34px;font-size:clamp(2rem,4vw,3.3rem)}
+.ending-scene>.eyebrow{color:var(--ending-color)}
+.ending-scene>.button{margin-top:20px}
+.ending-beats{display:flex;gap:9px}
+.ending-beats i{width:24px;height:2px;background:#5c6c7855}
+.ending-beats .lit{background:var(--ending-color)}
+.final-summary{max-width:490px;margin:0 auto}
+.node-map{height:700px}
+.hub-node{left:50%;top:49%}
+@media(max-width:650px){
+  .node-map{height:890px}.node-map--palace{height:870px}
+  .hub-node{top:43%}
+  .map-node{min-height:113px}
+  .node--palace{min-height:86px}
+  .node-map--palace .hub-node{top:39%}
+  .dialogue:has(.speaker-icon)>p{padding-left:0}
+  .ending-scene{padding:25px 8px}
+  .ending-scene>.button{width:100%}
+  .ending-scene h1{font-size:2.15rem}
+  .caller em{margin-left:51px}
+}
