@@ -8,16 +8,17 @@ Coverage includes complete safe and risky routes; both Secret Ending triggers; f
 
 JavaScript syntax checks pass for the application, engine, and narrative files.
 
-## Still required before declaring Prototype 1 finished
+## Live browser verification
 
-- Create the remote GitHub repository and enable Pages.
-- Verify the deployed module and asset paths from the public URL.
-- Run a complete browser playthrough with the visible controls.
-- Inspect title, maps, encounters, dialogs, and endings at phone and desktop widths.
-- Check for clipping, readable labels, keyboard focus, and touch-sized controls.
-- Confirm every visible button, including both Return Home confirmation choices.
+Published with GitHub Pages from `main` at https://ahhassig.github.io/dottomon-recall/.
 
-These browser checks have not been claimed as complete. The available preview browser blocks the local HTTP host and local-file navigation. Public deployment is pending GitHub browser sign-in; the connected GitHub tool can edit repository files but cannot create repositories or configure Pages.
+Completed a full live playthrough through both city decoys, both pastry captures, all three one-time calls, Palace unlock, the lobby scatter, every Palace room, two automatic smoking breaks, and the Good Ending. The final report correctly showed **18:00, 7/7, 2 cigarettes** after visiting every decoy and using all three hints.
+
+Also verified the instructions, free hub notes, both Return Home confirmation choices, Bad Ending 1, and replay. Reading and opening menus left mission time unchanged. Location markers changed to CLEARED or SECURED as appropriate, and captured assistants stayed home.
+
+Inspected the desktop title/map and phone title, maps, encounter, and dialog layouts using `tests/responsive.html`. The preview page is a development aid, separate from the game. Checks use desktop Chromium with a narrow embedded viewport; a physical iPhone/Safari check remains useful for platform-specific behavior.
+
+Both Secret Ending triggers, Bad Ending 2 with every possible remaining cast, and time-boundary precedence are verified deterministically by the engine suite. Secret-route randomness is not overridden in the shipped interface.
 
 ## Browser playtest routes
 

@@ -2,6 +2,8 @@
 
 Seven missing. Thirty minutes. One migraine.
 
+**[Play DOTTOMON RECALL](https://ahhassig.github.io/dottomon-recall/)** — public, no account required.
+
 A complete, dependency-free static narrative game for Lex’s Marina AU. Play as Feofan and recover seven escaped Dottomons in Snezhnograd and Zapolyarny Palace before they interrupt Zandik’s work. Designed for touch, phones, tablets, and desktop browsers.
 
 ## Run locally

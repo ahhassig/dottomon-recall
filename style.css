@@ -1,7 +1,7 @@
 :root{color-scheme:dark;--ink:#edf2f5;--muted:#a6b8c8;--faint:#788fa4;--ice:#b9d8e9;--gold:#c3b18a;--navy:#091623;--panel:#102231;--line:#314453;--pink:#d3939b;--green:#a6cbbd;--serif:Georgia,'Times New Roman',serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 
 *{box-sizing:border-box}
-html{min-width:320px;background:var(--navy);scroll-behavior:smooth}
+html{min-width:0;background:var(--navy);scroll-behavior:smooth}
 body{margin:0;color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;background:radial-gradient(ellipse at 83% 5%,#213f5555,transparent 60%),linear-gradient(140deg,#101e2d,#08121e 75%);min-height:100svh}
 body[data-region=palace]{background:radial-gradient(ellipse at 50% 0%,#293c5450,transparent 55%),linear-gradient(125deg,#101621,#070b13);--panel:#141d2a;--line:#36414f}
 button,a{-webkit-tap-highlight-color:transparent}
