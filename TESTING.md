@@ -1,21 +1,19 @@
-# Version 0.2 verification
+# Version 0.3 verification
 
-`node --test tests/*.test.js`: **30 passing tests**, zero failures.
+`npm test`: **42 passing tests**, zero failures.
 
-Coverage includes every ending, both Secret triggers, 33% boundaries, both pastry approaches, risky capture from 0% and 50% stress, the five-cigarette limit, exact timing, both new decoys, permanent recovery, Palace identity locks, all Bad 2 cast sizes, one-time hints, early return, complete resets, three-scene ending data, five distinct speaker emblems, and 200 randomized mission simulations.
+The suite preserves the v0.2 ending, timer, stress, permanent-capture, hint, decoy, and Palace progression checks. It adds exact 50% boundaries; automatic date-partner recovery with no second random call or stress; date timeout/unlock boundaries; hint summaries; validated archive persistence; replay versus gallery reset; corrupt/blocked storage handling; and UI event/template routes through every ending. It also runs 200 seeded adversarial mission simulations.
 
-Deterministic reference runs:
-
-| Route | Result | Time remaining | Cigarettes |
+| Deterministic route | Result | Time remaining | Cigarettes |
 | --- | --- | --- | --- |
-| Seven successful Safe captures; no detours | Good | 14:15 | 0 |
-| Four Risky captures, three successful Safe captures | Good | 10:15 | 4 |
-| All Risky; sixth capture triggers overload | Secret | 10:00 | 5 |
+| Six successful Safe captures plus voluntary partner; no detours | Good | 14:15 | 0 |
+| Four Risky, two successful Safe, voluntary partner | Good | 10:15 | 4 |
+| All Risky; last capture triggers existing Secret rule | Secret | 9:15 | 5 |
 
-## Browser verification
+## Browser QA
 
-Version 0.1 was checked through a complete phone-width Good Ending playthrough, all decoys, all hints, automatic smoking, Return Home confirmation, Bad Ending 1, and replay. Desktop and phone screens were inspected, with no game runtime errors.
+The UI integration test uses a minimal DOM stand-in; it does not assert actual browser layout. Cloud Browser blocks localhost/file previews in this environment, so desktop/mobile rendering checks use the deployed GitHub Pages site after the regression gate.
 
-For v0.2, check the new version label, 20:00 clock, both added nodes, pastry failure/risky results, all five speaker icons, three-scene ending navigation, summary, and reset on the deployed URL. `tests/responsive.html` provides narrow embedded viewports without changing the game rules. Engine tests cover controlled random outcomes; the public game has no cheats or deterministic random overrides.
+Release checklist: v0.3 label and 50% instructions; automatic date follow; 320px/390px/768px layouts; both node maps; capture feedback; modal fit and focus; three-scene ending navigation; report; archive discovery and replay/reload persistence; no horizontal overflow or game console errors.
 
-A desktop Chromium phone-width check is not a physical iPhone/Safari test.
+Reduced-motion CSS disables animations and transitions globally. Idle animations are finite and ending distress has no movement. A Chromium phone-width check is not a physical iPhone/Safari test.

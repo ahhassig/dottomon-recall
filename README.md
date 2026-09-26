@@ -1,4 +1,4 @@
-# DOTTOMON RECALL · v0.2
+# DOTTOMON RECALL · v0.3
 
 Seven missing. Twenty minutes. One migraine.
 
@@ -6,15 +6,16 @@ Seven missing. Twenty minutes. One migraine.
 
 A lightweight static narrative game for Lex’s Marina AU. Play as Feofan and recover seven escaped Dottomons before they interrupt Zandik’s work. HTML, CSS, and vanilla JavaScript; no build, backend, dependencies, accounts, tracking, or external art.
 
-## Version 0.2
+## Version 0.3
 
-- Twenty action-based minutes; reading and menus are always free.
-- Safe Capture succeeds exactly 33% of the time at every occupied location, including both pastry dates. Success costs 15s; failure costs 30s and adds 50% stress.
-- Risky Capture guarantees recovery and immediately fills the stress bar, triggering one automatic smoking break: 15s capture + 60s break = 75s. This produces one cigarette even when starting at 50% stress.
-- The date pair remain two separate recoveries, each with Safe and Risky choices.
-- New empty locations: Courier Station in Snezhnograd and Palace Guardroom. Seven fugitives remain in their original fixed locations.
-- Five original character emblems accompany Feofan, Marina, Albedo, Durin, and Zandik’s dialogue and calls.
-- Every ending unfolds across three scenes, then shows its distinct ending card and run summary. All reading remains untimed.
+- Safe Capture now succeeds at **50%**. Failure still costs 30s and adds 50% stress; Risky still guarantees capture and immediately invokes the existing critical-stress rules.
+- The first pastry date uses normal capture rules. Its partner follows automatically: no second roll or stress, with a 15s recovery cost. The pair costs 30s on Safe success or 90s on an ordinary Risky capture, including its smoking break.
+- Original inline vector environments, subtle fugitive props, clearer dialogue cards, frosted UI, and distinct ending tableaux. No image requests, official game assets, fonts, or external services are required. CSS backgrounds remain usable without the decorative SVG layer.
+- Location-specific failure/risky feedback, smoking-break variants, return flavor, and a tender voluntary date-partner scene.
+- The existing three-scene endings have stronger visual and written payoffs; summaries now include hints used and the ending obtained.
+- **Ending Archive** on the title and report screens. Discovered endings persist through replay and browser reload via localStorage. Resetting the archive requires confirmation and never changes the current run. Blocked storage falls back to session-only progress with a clear notice.
+- Short, finite assistant animations and transition feedback; reduced-motion preferences disable motion. No animated distress in the Secret Ending.
+- Twenty action-based minutes, seven fixed fugitives, existing maps and one-use hints remain unchanged. Reading, menus, and returning to the map stay free.
 
 ## Structure
 
@@ -27,8 +28,10 @@ A lightweight static narrative game for Lex’s Marina AU. Play as Feofan and re
 | `data/dialogue.js` | Opening, encounters, failures, and contextual hints |
 | `data/endings.js` | Ending scenes and conditional laboratory cast |
 | `data/characters.js` | Lightweight original speaker emblems |
+| `data/visuals.js`, `data/flavor.js` | Original vector scenery, fugitive cues, and capture narration |
+| `progress.js` | Validated, resilient browser Ending Archive storage |
 | `assets/ui/` | Site emblem; future assets can be added under `assets/` |
-| `tests/engine.test.js` | Deterministic routes, boundaries, and randomized state checks |
+| `tests/*.test.js` | Engine routes, boundaries, randomized state checks, archive storage, and UI event/template integration |
 | `tests/responsive.html` | Developer-only embedded viewport for layout checks |
 
 ## Run and test
@@ -45,7 +48,7 @@ City travel is 30s, with 45s routes to the Promenade and Courier Station. Palace
 
 The Palace unlocks only after all three specific city assistants are recovered. The lobby scatter leads to six searchable rooms: four occupied and two empty. Maps conceal unexplored occupancy. Visited empty nodes become CLEARED and fully resolved occupied nodes become SECURED.
 
-Marina, Albedo, and Durin each supply one contextual hint per run for 20s. Used contacts show NO NEW IDEAS. Return Home requires confirmation and ends an incomplete search with Bad Ending 1. Play Again clears every field and the ending-scene position.
+Marina, Albedo, and Durin each supply one contextual hint per run for 20s. Used contacts show NO NEW IDEAS. Return Home requires confirmation and ends an incomplete search with Bad Ending 1. Play Again clears every mission field and the ending-scene position, while preserving the Ending Archive. Browser storage uses `dottomon-recall.endings.v1`; no personal data or run history is stored.
 
 ## Endings — spoilers
 
@@ -56,3 +59,7 @@ Seven recoveries without a Secret trigger yield Good. Timeout before Palace entr
 Each action resolves atomically, including capture, arrival, and any automatic break. Ending precedence is **Secret → Good → timeout → continue**. Time clamps to zero. A last capture on the time boundary therefore wins over timeout. Merely arming Secret at timeout does not trigger it.
 
 Dottomons are intelligent continuity patterns of Zandik’s former cooperative Segments, not pets. They communicate through sounds and behavior. Migraine and anxiety are treated sincerely. This unofficial fan game is not affiliated with the original game's creators. Private source lore documents are not included in this repository.
+
+## Deliberately deferred
+
+v0.4: curated randomized placements, placement-aware hints, the surprise Dottoling, four achievements, and the revised sixth-critical-episode Secret rule. v0.5: alternate writing, the full environment/ending illustration pass, optional audio, and final replay/balance polish. The v0.3 Secret trigger is intentionally unchanged.
