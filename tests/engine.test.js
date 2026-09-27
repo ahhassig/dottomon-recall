@@ -5,6 +5,7 @@ import {CITY_IDS,PALACE_IDS,LOCATIONS} from '../data/locations.js';
 import {hintFor} from '../data/dialogue.js';
 import {ENDINGS} from '../data/endings.js';
 import {ENCOUNTERS} from '../data/dialogue.js';
+import {CAPTURE_FLAVOR} from '../data/flavor.js';
 import {speakerIcon} from '../data/characters.js';
 
 function game(roll=()=>0.1) {
@@ -14,7 +15,7 @@ function game(roll=()=>0.1) {
 function start(g) {g.do('BEGIN');for(let i=0;i<3;i++)g.do('INTRO_NEXT');}
 function visit(g,id){return g.do('VISIT',{id});}
 function capture(g,method='safe'){g.do('CAPTURE',{method});if(g.s.phase==='result')g.do('CONTINUE');}
-function city(g,method='safe'){visit(g,'pastry');capture(g,method);capture(g,method);visit(g,'alchemy');capture(g,method);}
+function city(g,method='safe'){visit(g,'pastry');capture(g,method);visit(g,'alchemy');capture(g,method);}
 function palace(g,method='safe'){visit(g,'palace');g.do('MAP');for(const id of PALACE_IDS.filter(x=>LOCATIONS[x].dottomons.length)){visit(g,id);capture(g,method);}}
 
 test('Intro and reading do not move the clock; early actions are rejected',()=>{
@@ -23,20 +24,30 @@ test('Intro and reading do not move the clock; early actions are rejected',()=>{
 test('Safe-only route recovers seven, no stress, good ending, exact 14:15',()=>{
  const g=game();start(g);city(g);assert.equal(g.s.recovered,3);palace(g);assert.equal(g.s.ending,'good');assert.equal(g.s.timeRemaining,855);assert.equal(g.s.cigarettes,0);
 });
-test('All-risky route arms on capture five and triggers Secret on capture six, at 10:00',()=>{
- const g=game(()=>{throw Error('Risky must not roll');});start(g);city(g,'risky');palace(g,'risky');assert.equal(g.s.ending,'secret');assert.equal(g.s.recovered,6);assert.equal(g.s.cigarettes,5);assert.equal(g.s.stress,0);assert.equal(g.s.timeRemaining,600);
+test('All-risky route arms at six recovered and triggers Secret on final capture, at 9:15',()=>{
+ const g=game(()=>{throw Error('Risky must not roll');});start(g);city(g,'risky');palace(g,'risky');assert.equal(g.s.ending,'secret');assert.equal(g.s.recovered,7);assert.equal(g.s.cigarettes,5);assert.equal(g.s.stress,0);assert.equal(g.s.timeRemaining,555);
 });
-test('Pastry pair have independent 33% safe rolls and both can be captured riskily',()=>{
- const g=game(()=>0.9);start(g);visit(g,'pastry');g.do('CAPTURE',{method:'safe'});assert.equal(g.s.recovered,0);assert.equal(g.s.stress,50);g.do('CONTINUE');g.do('CAPTURE',{method:'risky'});assert.equal(g.s.recovered,1);assert.equal(g.s.cigarettes,1);assert.equal(g.s.result.cost,75);g.do('CONTINUE');g.do('CAPTURE',{method:'risky'});assert.equal(g.s.recovered,2);assert.equal(g.s.cigarettes,2);assert.equal(g.s.stress,0);assert.equal(locationStatus(g.s,'pastry'),'SECURED');
+test('Date partner follows automatically with no second roll or stress event',()=>{
+ for(const method of ['safe','risky']){
+  let rolls=0;const g=game(()=>{rolls++;return 0.1;});start(g);visit(g,'pastry');g.do('CAPTURE',{method});
+  assert.equal(rolls,method==='safe'?1:0);assert.equal(g.s.recovered,2);assert.deepEqual(g.s.capturedDottomons,['tea-one','tea-two']);
+  assert.equal(g.s.result.partnerFollowed,true);assert.equal(g.s.result.cost,method==='safe'?30:90);
+  assert.equal(g.s.cigarettes,method==='safe'?0:1);assert.equal(g.s.stress,0);assert.equal(locationStatus(g.s,'pastry'),'SECURED');
+  g.do('CONTINUE');assert.equal(g.s.phase,'map');
+ }
 });
-test('Four risky captures plus three successful safe captures still reach Good',()=>{
- const g=game();start(g);city(g,'risky');visit(g,'palace');g.do('MAP');visit(g,'archives');capture(g,'risky');for(const id of ['operations','service','reagents']){visit(g,id);capture(g);}assert.equal(g.s.ending,'good');assert.equal(g.s.cigarettes,4);assert.equal(g.s.timeRemaining,615);
+test('Failed first date recovery never recovers its partner',()=>{
+ const g=game(()=>0.9);start(g);visit(g,'pastry');g.do('CAPTURE',{method:'safe'});assert.equal(g.s.recovered,0);assert.equal(g.s.stress,50);assert.equal(g.s.result.cost,30);
+ g.do('CONTINUE');g.do('CAPTURE',{method:'risky'});assert.equal(g.s.recovered,2);assert.equal(g.s.cigarettes,1);assert.equal(g.s.result.cost,90);
+});
+test('Four risky captures plus automatic partner and two safe captures reach Good',()=>{
+ const g=game();start(g);city(g,'risky');visit(g,'palace');g.do('MAP');visit(g,'archives');capture(g,'risky');visit(g,'operations');capture(g,'risky');for(const id of ['service','reagents']){visit(g,id);capture(g);}assert.equal(g.s.ending,'good');assert.equal(g.s.cigarettes,4);assert.equal(g.s.timeRemaining,615);
 });
 test('Failure stays in the same location; repeat captures are guarded',()=>{
  const g=game(()=>0.9);start(g);visit(g,'alchemy');g.do('CAPTURE',{method:'safe'});assert.equal(g.s.recovered,0);assert.equal(g.s.stress,50);assert.equal(g.s.timeRemaining,1140);const old=structuredClone(g.s);g.do('CAPTURE',{method:'risky'});assert.deepEqual(g.s,old);g.do('CONTINUE');assert.equal(g.s.location,'alchemy');assert.equal(remainingAt(g.s,'alchemy').length,1);
 });
-test('33% boundary uses strictly less than 0.33',()=>{
- for(const [value,recovered] of [[0,1],[0.329999,1],[0.33,0],[1/3,0],[0.9999,0]]){const g=game(()=>value);start(g);visit(g,'alchemy');g.do('CAPTURE',{method:'safe'});assert.equal(g.s.recovered,recovered);}
+test('50% boundary uses strictly less than 0.5',()=>{
+ for(const [value,recovered] of [[0,1],[0.499999,1],[0.5,0],[0.500001,0],[0.9999,0]]){const g=game(()=>value);start(g);visit(g,'alchemy');g.do('CAPTURE',{method:'safe'});assert.equal(g.s.recovered,recovered);}
 });
 test('Second stress event automatically charges precisely one 60s break',()=>{
  const g=game(()=>0.9);start(g);visit(g,'alchemy');capture(g);g.do('CAPTURE',{method:'safe'});assert.equal(g.s.cigarettes,1);assert.equal(g.s.stress,0);assert.equal(g.s.timeRemaining,1050);assert.equal(g.s.result.cost,90);assert.equal(g.s.result.smoking,true);g.do('CONTINUE');assert.equal(g.s.timeRemaining,1050);
@@ -67,8 +78,11 @@ test('Every empty decoy charges travel + 30s search and becomes CLEARED',()=>{
 test('Revisits cannot duplicate captures or release recovered assistants',()=>{
  const g=game();start(g);visit(g,'pastry');capture(g);capture(g);visit(g,'pastry');const before=structuredClone(g.s);capture(g);assert.deepEqual(g.s,before);assert.equal(g.s.recovered,2);
 });
-test('Palace cannot unlock with wrong count or bypass city identities',()=>{
- const g=game();start(g);visit(g,'palace');assert.equal(g.s.palaceEntered,false);visit(g,'archives');assert.equal(g.s.location,'plaza');visit(g,'alchemy');capture(g);visit(g,'pastry');capture(g);g.do('MAP');visit(g,'palace');assert.equal(g.s.palaceEntered,false);visit(g,'pastry');capture(g);assert.equal(cityComplete(g.s),true);visit(g,'palace');assert.equal(g.s.phase,'scatter');assert.equal(g.s.palaceEntered,true);assert.equal(g.s.region,'palace');
+test('Palace remains locked after the date pair until the chemist is recovered',()=>{
+ const g=game();start(g);visit(g,'palace');assert.equal(g.s.palaceEntered,false);visit(g,'archives');assert.equal(g.s.location,'plaza');
+ visit(g,'pastry');capture(g);assert.equal(g.s.recovered,2);visit(g,'palace');assert.equal(g.s.palaceEntered,false);
+ visit(g,'alchemy');g.do('CAPTURE',{method:'safe'});assert.equal(g.s.result.unlocked,true);g.do('CONTINUE');assert.equal(cityComplete(g.s),true);
+ visit(g,'palace');assert.equal(g.s.phase,'scatter');assert.equal(g.s.palaceEntered,true);assert.equal(g.s.region,'palace');
 });
 test('City locations and repeat Palace entry are inaccessible after entering',()=>{
  const g=game();start(g);city(g);visit(g,'palace');g.do('MAP');const before=structuredClone(g.s);visit(g,'market');visit(g,'palace');assert.deepEqual(g.s,before);
@@ -121,10 +135,23 @@ test('New city and Palace decoys are searchable, empty, charged, and cleared',()
  const g=game();start(g);const before=g.s.timeRemaining;visit(g,'courier');assert.equal(g.s.timeRemaining,before-75);assert.equal(locationStatus(g.s,'courier'),'CLEARED');assert.equal(g.s.recovered,0);g.do('MAP');city(g);visit(g,'palace');g.do('MAP');const time=g.s.timeRemaining;visit(g,'guardroom');assert.equal(g.s.timeRemaining,time-60);assert.equal(locationStatus(g.s,'guardroom'),'CLEARED');assert.equal(g.s.stress,0);
 });
 test('All occupied locations have success and failure text for both approaches',()=>{
- for(const id of [...CITY_IDS,...PALACE_IDS]){assert.ok(ENCOUNTERS[id].lines.length);if(LOCATIONS[id].dottomons.length){assert.ok(ENCOUNTERS[id].failures.length);assert.ok(ENCOUNTERS[id].success.length);}}
+ for(const id of [...CITY_IDS,...PALACE_IDS]){assert.ok(ENCOUNTERS[id].lines.length);if(LOCATIONS[id].dottomons.length){assert.ok(ENCOUNTERS[id].failures.length);assert.ok(ENCOUNTERS[id].success.length);assert.ok(CAPTURE_FLAVOR[id].risky.length);assert.ok(CAPTURE_FLAVOR[id].return.length);}}
 });
 test('Every ending has three nonempty scenes; all five named speakers have distinct icons',()=>{
  const g=game();start(g);city(g);visit(g,'palace');g.s.timeRemaining=0;g.do('CALL',{person:'marina'});
  for(const ending of Object.values(ENDINGS)){const all=ending.lines(g.s),cuts=[0,...ending.breaks,all.length];assert.equal(ending.chapters.length,3);for(let i=0;i<3;i++)assert.ok(all.slice(cuts[i],cuts[i+1]).length>0);}
  const names=['Feofan','Marina','Albedo','Durin','Zandik'];const icons=names.map(speakerIcon);assert.equal(new Set(icons).size,5);for(let i=0;i<5;i++){assert.ok(icons[i].includes('data-speaker="'+names[i]+'"'));assert.ok(icons[i].includes('<svg'));}assert.equal(speakerIcon('Clerk'),'');
+});
+
+test('Date recovery is atomic at timeout; partner consumes 15s but never another cigarette',()=>{
+ const g=game();start(g);visit(g,'pastry');g.s.timeRemaining=20;g.do('CAPTURE',{method:'safe'});assert.equal(g.s.recovered,2);assert.equal(g.s.ending,'home');assert.equal(g.s.timeRemaining,0);assert.equal(g.s.endingSummary.recovered,2);
+});
+test('Date pair can complete city last and unlock Palace in the same result',()=>{
+ const g=game();start(g);visit(g,'alchemy');capture(g);visit(g,'pastry');g.do('CAPTURE',{method:'safe'});assert.equal(g.s.recovered,3);assert.equal(g.s.result.unlocked,true);
+});
+test('Final report counts all spent hints, including a timeout-producing call',()=>{
+ const g=game();start(g);g.do('CALL',{person:'marina'});g.s.timeRemaining=20;g.do('CALL',{person:'durin'});assert.equal(g.s.endingSummary.hintsUsed,2);
+});
+test('Hints after city completion direct the player to the Palace, not a secured shop',()=>{
+ const g=game();start(g);city(g);for(const who of ['marina','albedo','durin'])assert.match(hintFor(who,g.s).text,/Palace/);
 });
