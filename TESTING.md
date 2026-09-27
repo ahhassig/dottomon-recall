@@ -14,6 +14,10 @@ The suite preserves the v0.2 ending, timer, stress, permanent-capture, hint, dec
 
 The UI integration test uses a minimal DOM stand-in; it does not assert actual browser layout. Cloud Browser blocks localhost/file previews in this environment, so desktop/mobile rendering checks use the deployed GitHub Pages site after the regression gate.
 
-Release checklist: v0.3 label and 50% instructions; automatic date follow; 320px/390px/768px layouts; both node maps; capture feedback; modal fit and focus; three-scene ending navigation; report; archive discovery and replay/reload persistence; no horizontal overflow or game console errors.
+Browser checks completed: desktop title and complete Secret route; date recovery (2/7, one cigarette, 18:00); Palace unlock/scatter/map; ending report; archive reveal, replay and reload persistence; Escape dismissal. Narrow city-map and archive checks at 320px, encounter/results at 390px, and map width at 768px had no horizontal overflow. No game-origin console errors were observed (browser-extension metadata errors are unrelated).
+
+Accessibility follow-up: ending announcements now report final totals, and replay clears the previous announcement; covered in the UI regression test.
+
+Checks covered by automated UI/engine tests include: v0.3 label and 50% instructions; automatic date follow; 320px/390px/768px layouts; both node maps; capture feedback; modal fit and focus; three-scene ending navigation; report; archive discovery and replay/reload persistence; no horizontal overflow or game console errors.
 
 Reduced-motion CSS disables animations and transitions globally. Idle animations are finite and ending distress has no movement. A Chromium phone-width check is not a physical iPhone/Safari test.
