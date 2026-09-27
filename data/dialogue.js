@@ -35,17 +35,12 @@ export const ENCOUNTERS = {
     ['Feofan','“Am I interrupting something?”'],
     'The one nearest him gives a clipped chirp and rests an arm on the table. The other moves its pastry plate slightly farther from his coat. Neither shows the slightest intention of being embarrassed.',
     ['Feofan','“Apparently I should’ve made a reservation.”'],
-    'He pays the bill and asks for a pastry box. He can try to persuade each guest to leave—or make a swift, certain interception before the next refill arrives.',
-    'The pair must be recovered separately. Their afternoon is apparently flexible. His is not.'
-  ],remaining:[
-    'One date has been safely returned to the penthouse with the pastry box. The other remains seated beside a cup that is now empty.',
-    'It taps the saucer. Feofan looks at the cup, then at the creature.',
-    ['Feofan','“The refill is at home.”'],
-    'A small huff. The negotiation appears to be approaching its conclusion.'
+    'He pays the bill and asks for a pastry box. He can try to persuade the nearest guest to leave—or make a swift, certain interception before the next refill arrives.',
+    'The other Dottomon watches its partner rather than Feofan. Apparently the company matters more than the cake.'
   ],failures:[
-    'A tiny arm accepts the pastry box. The rest of the Dottomon stays firmly on its chair, with one red eye fixed on the teapot. The box was accepted; the invitation was not.',
-    'It slides beneath the tablecloth and emerges on the opposite chair. Feofan keeps the aisle clear and waits. The date has acquired a seating plan.',
-    'The Dottomon presents its cup for inspection. By the time Feofan sets it safely down, the little guest has retreated behind the sugar bowl. Still in the shop. Still on the date.'
+    'A tiny arm accepts the pastry box. The rest of the Dottomon stays firmly on its chair, with one red eye fixed on the teapot. The box was accepted; the invitation was not. The server approaches with another pot. Feofan has to intercept the hot tea while keeping the exit in view.',
+    'It slides beneath the tablecloth and emerges on the opposite chair. Feofan keeps the aisle clear and waits. The date has acquired a seating plan. He has to crouch between two occupied tables without letting it reach the door.',
+    'The Dottomon presents its cup for inspection. By the time Feofan sets it safely down, the little guest has retreated behind the sugar bowl. Still in the shop. Still on the date. A chair scrapes behind him; he turns sharply, checking that neither guest has made for the exit.'
   ],riskySuccess:[
     'Feofan closes the gap before the Dottomon can reach the next chair. Creature and pastry box are safely sent home; the protesting trill draws every eye in the shop. He needs a moment outside.',
     'Feofan intercepts the second guest before it can request another pot. The date is over, both assistants are home, and nothing breakable has suffered. His composure has had a more expensive afternoon.'
@@ -64,9 +59,9 @@ export const ENCOUNTERS = {
     'It emits an indignant trill and draws the sleeve closer. Feofan moves between the shelf and the door. Now he can coax it into reach, or commit to a quick interception.'
   ],success:'Feofan secures the Dottomon, returns the unopened vial, and arranges payment for a scratched shelf. The shopkeeper watches the creature leave with the expression of someone revising her terms of sale.',
   failures:[
-    'It places the padded sleeve in his hand. For one promising second, Feofan thinks this is cooperation. Then it slips behind the display while he’s still holding the sleeve.',
-    'A polite chirp draws his attention to the counter. The Dottomon is already under the opposite shelf. It hasn’t escaped the shop; it has merely made the discussion considerably more annoying.',
-    'It reaches toward him, waits until he shifts his weight, and ducks behind a crate. Feofan adjusts his position. The exits remain covered. The creature remains unconvinced.'
+    'It places the padded sleeve in his hand. For one promising second, Feofan thinks this is cooperation. Then it slips behind the display while he’s still holding the sleeve. Glass rattles above it. He steadies the entire rack before he can reach again.',
+    'A polite chirp draws his attention to the counter. The Dottomon is already under the opposite shelf. It hasn’t escaped the shop; Feofan must move a crate before it can squeeze into a shelf full of volatile stock.',
+    'It reaches toward him, waits until he shifts his weight, and ducks behind a crate. Feofan adjusts his position. The exits remain covered. The creature reaches toward another bottle. Feofan catches the glass before it tips, pulse hammering.'
   ]},
   market:{title:'An unproductive line of inquiry.',lines:[
     'Snow ticks against the glass roof of the arcade. Feofan makes a methodical circuit: stall ledges, warm awnings, stacked delivery crates. No red eye looks back.',
@@ -96,9 +91,9 @@ export const ENCOUNTERS = {
     'The creature looks between him and the remaining open files. It has not accepted the proposed timetable.'
   ],success:'The papers are left in their correct order. The Dottomon goes home still pointing at the saved photograph, but the argument can now continue somewhere Zandik isn’t working.',
   failures:[
-    'The Dottomon passes him a report. While he sets it safely down, it slides behind the lower drawer. It remains in the Archives, with an entirely new argument about the appendix.',
-    'It hops to the other side of the table, taking care not to disturb the open pages. Feofan circles the desk. This is a well-organized evasion.',
-    'An emphatic trill directs his attention to a second chart. He declines the distraction; the creature retreats under the rolling ladder anyway.'
+    'The Dottomon passes him a report. While he sets it safely down, it slides behind the lower drawer. The drawer tips under its weight. Feofan braces it before the restricted files spill, losing his chance to reach the assistant.',
+    'It hops to the other side of the table, taking care not to disturb the open pages. Feofan circles the desk. An archivist arrives at the doorway. Feofan has to explain the intrusion and block the next escape route at once.',
+    'An emphatic trill directs his attention to a second chart. He declines the distraction; the creature retreats under the rolling ladder anyway. He arrests the ladder with one hand before it rolls into the cabinet.'
   ]},
   operations:{title:'The smallest person in charge.',lines:[
     'A dispatch clerk is holding two contradictory requisitions. Another is standing beside a communications terminal with the air of someone waiting for a superior to become less spherical.',
@@ -111,9 +106,9 @@ export const ENCOUNTERS = {
     'The Dottomon places both arms on the requisition it prefers. Its huff suggests it intends to escalate the matter. Unfortunately for it, Feofan is the escalation.'
   ],success:'The dispatches are restored before anything reaches the research wing. Feofan sends the self-appointed coordinator home. The clerk very carefully refrains from asking whether it will be returning in an official capacity.',
   failures:[
-    'It slides a requisition under his hand, then darts around the terminal. Feofan secures the dispatch switch first. Catching it will require another attempt.',
-    'The creature holds up a neatly corrected timetable as though requesting one final review. Then it disappears behind the in-tray. The clerk closes the far door without being asked.',
-    'Feofan anticipates the jump toward the communications panel. The Dottomon changes course and lands under the desk. No messages go out, but neither does the fugitive.'
+    'It slides a requisition under his hand, then darts around the terminal. Feofan secures the dispatch switch first. The clerk is waiting for an instruction; Feofan gives it while keeping the fugitive in sight, jaw set.',
+    'The creature holds up a neatly corrected timetable as though requesting one final review. Then it disappears behind the in-tray. An outgoing dispatch bell sounds. Feofan stops the clerk from sending the revised order, then checks the far door.',
+    'Feofan anticipates the jump toward the communications panel. The Dottomon changes course and lands under the desk. No messages go out, but he has had to lunge between it and a live switch. His heart has not caught up with the successful prevention.'
   ]},
   service:{title:'A shortcut with objections.',lines:[
     'A vent cover rests neatly against the wall. Its screws sit in a little row beside it. This is not vandalism. Someone intends to put it back.',
@@ -125,9 +120,9 @@ export const ENCOUNTERS = {
     'It rocks once on its little body, weighing the options. Feofan lowers a hand. An invitation might work. Intercepting the next dash certainly will, though neither of them will enjoy the scramble.'
   ],success:'Feofan catches the runner before it reaches the open vent. The screws and cover are returned to maintenance; the indignant architect of the shortcut is returned to the penthouse.',
   failures:[
-    'The runner slips through the low opening and reappears farther down the same corridor. Feofan has kept it away from the research wing. It has kept him walking.',
-    'A small black blur doubles back around the maintenance trolley. Feofan closes off the opening behind it. The chase remains contained in the service passage.',
-    'It waits until he is close, then takes the narrow space beneath the handrail. He reaches the next junction first. They stare at each other, right back where they started.'
+    'The runner slips through the low opening and reappears farther down the same corridor. Feofan has kept it away from the research wing. Keeping it that way means a sharp turn and a sprint to the next opening. He arrives breathing hard.',
+    'A small black blur doubles back around the maintenance trolley. Feofan closes off the opening behind it. The trolley starts to roll. He stops it with his shoulder while blocking the next turn; the chase stays contained, at a cost to his composure.',
+    'It waits until he is close, then takes the narrow space beneath the handrail. He reaches the next junction first. They stare at each other, right back where they started. Feofan straightens from the low railing, fighting the urge to rush his next attempt.'
   ]},
   reagents:{title:'One door too close.',lines:[
     'This assistant did not flee from the lobby. It was already here, near the research wing, working through the labels on a locked specialist cabinet.',
@@ -140,9 +135,9 @@ export const ENCOUNTERS = {
     'The Dottomon watches his hand. Behind it, the cabinet latch gives a very small click.'
   ],success:'The catalyst remains sealed. The cabinet is secured, the research-wing door stays closed, and the assistant goes home. Its work can wait. Zandik’s quiet cannot.',
   failures:[
-    'It relinquishes the catalyst, then slips around the far side of the cabinet to retrieve the bracket. Feofan puts the material safely away. The assistant is still in the room.',
-    'The Dottomon squeezes beneath the transport tray and peeks out through the handle. Feofan checks the locked research door again before making another approach.',
-    'An earnest trill accompanies a fresh attempt to show him the specification. When he reaches closer, it retreats behind the lower shelf. Its belief in the project is proving remarkably durable.'
+    'It relinquishes the catalyst, then slips around the far side of the cabinet to retrieve the bracket. Feofan puts the material safely away. The research door rattles as someone passes outside. He checks the lock again, acutely aware of how close they are.',
+    'The Dottomon squeezes beneath the transport tray and peeks out through the handle. A glass ampoule rolls toward the edge. Feofan catches it and holds still until his grip steadies.',
+    'An earnest trill accompanies a fresh attempt to show him the specification. When he reaches closer, it retreats behind the lower shelf. Its arm reappears beside the cabinet latch. Feofan closes the latch first, startled by the tiny click so near his husband’s room.'
   ]},
   courier:{title:'Nothing addressed to Prime.',lines:[
     'The courier station is warm with wet wool and the smell of sealing wax. Feofan asks the clerk to check the outgoing parcels while he inspects the sorting shelves.',
@@ -184,6 +179,7 @@ export const SCATTER = [
 export function hintFor(person,s) {
   const has = id => !s.capturedDottomons.includes(id);
   let target;
+  if (!s.palaceEntered && ['tea-one','tea-two','chemist'].every(id=>!has(id))) return {text:'“All three from the city are home. The Palace is your next stop. We’ll keep everyone here.”',follow:null};
   if (!s.palaceEntered) {
     target = person==='albedo' && has('chemist') ? 'alchemy' : (has('tea-one') || has('tea-two')) ? 'pastry':'alchemy';
   } else {

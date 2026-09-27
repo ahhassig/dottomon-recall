@@ -1,4 +1,4 @@
-import { LOCATIONS, CITY_DOTTOMONS, PALACE_DOTTOMONS, ALL_DOTTOMONS, COSTS, MISSION_SECONDS, SAFE_CHANCE } from './data/locations.js?v=0.2';
+import { LOCATIONS, CITY_DOTTOMONS, PALACE_DOTTOMONS, ALL_DOTTOMONS, COSTS, MISSION_SECONDS, SAFE_CHANCE } from './data/locations.js?v=0.3';
 
 export function initialState() {
   return {phase:'title', intro:0, region:'city', location:'plaza', timeRemaining:MISSION_SECONDS, stress:0,
@@ -19,7 +19,7 @@ function spend(s, seconds) { s.timeRemaining = Math.max(0,s.timeRemaining-second
 function finish(s, id) {
   s.ending = id;
   s.endingSummary = {timeRemaining:s.timeRemaining, recovered:s.recovered, cigarettes:s.cigarettes,
-    uncapturedPalace:remainingPalace(s)};
+    hintsUsed:['marina','albedo','durin'].filter(person=>s[person+'HintUsed']).length, uncapturedPalace:remainingPalace(s)};
   s.phase = 'ending';
   s.hint = null;
 }
@@ -84,7 +84,17 @@ export function transition(previous, action, random=Math.random) {
     s.result={success,method:action.method,target,smoking:false,cost:baseCost,unlocked:false};
     s.attempts[s.location]=(s.attempts[s.location]||0)+1;
     spend(s,baseCost);
-    if (success) {s.capturedDottomons.push(target); s.recovered=s.capturedDottomons.length;}
+    if (success) {
+      s.capturedDottomons.push(target);
+      // The date ends as one atomic action: no second roll, decision, or stress event.
+      if (target === 'tea-one' && !s.capturedDottomons.includes('tea-two')) {
+        s.capturedDottomons.push('tea-two');
+        spend(s,COSTS.capture);
+        s.result.cost+=COSTS.capture;
+        s.result.partnerFollowed=true;
+      }
+      s.recovered=s.capturedDottomons.length;
+    }
     let secretTriggered=false;
     if (!success || action.method==='risky') secretTriggered=stressEvent(s,action.method==='risky');
     if (s.result.smoking) s.result.cost+=COSTS.smoking;

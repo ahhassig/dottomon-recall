@@ -9,7 +9,7 @@ export const ENDINGS = {
     'When Zandik comes home, his migraine is easing. His work is finished. The room is warm, the curtains drawn, and twenty assistants are arranged in an extravagantly innocent semicircle.',
     ['Zandik','“Why are they all looking at me?”'],
     ['Feofan','“Admiration. Gratitude. Excellent supervision.”'],
-    'Albedo turns a diagram face down. Marina suddenly finds the curtains fascinating. Durin presses his lips together, unsuccessfully.',
+    'Albedo turns a diagram face down with the care of someone preserving evidence. Marina suddenly finds the curtains fascinating. Durin presses his lips together, unsuccessfully. Two Dottomons sit on the pastry box. A third is concealing a requisition stamp beneath its own fluff.',
     ['Durin','“They’re very glad you’re home.”'],
     'A tiny trill agrees with considerable emphasis. Zandik looks around the room, then at his husband. One eyebrow rises.',
     ['Feofan','“An entirely uneventful afternoon.”'],
@@ -18,7 +18,7 @@ export const ENDINGS = {
     ['Zandik','“Better.”'],
     'He lays a hand over Feofan’s, thumb settling against his knuckles. His next words are quiet enough to belong to them.',
     ['Zandik','“Thank you. I needed that time.”'],
-    'Feofan squeezes his hand. For once, there is no clever answer ready. He leans over and kisses his temple instead.',
+    'Feofan squeezes his hand. He had spent the whole search thinking about this: an easier breath, a quiet room, his husband no longer bracing against the light. For once, there is no clever answer ready. He leans over and kisses his temple instead.',
     'Marina smiles into her tea. Albedo leaves the diagram where it is. Durin makes room as two puffballs nestle against Feofan’s coat.',
     'Twenty present. The work is finished. His husband is home. Feofan lets himself stop counting.'
   ]},
@@ -28,9 +28,9 @@ export const ENDINGS = {
     ['Feofan','“Just—give me a moment.”'],
     'The little sounds around him stop. A red eye fixes on his face. An outstretched arm no longer reaches for a reagent or an escape route. It reaches for him.',
     'He tries to steady himself. His knees give way. Then he loses consciousness.',
-    'Every argument ends.',
+    'Every argument ends. The nearest Dottomon sets its carefully chosen prize on the floor without looking at it again.',
     'No more running. No more experiments. No more plans for Prime. Someone they love is on the ground, and the search has ceased to matter.',
-    'The seven escapees have one purpose now: bringing him home. Between one moment and the next, an enormous man in a dark coat is being brought safely back by seven intensely determined black puffballs. None abandons him. The logistics, for once, belong entirely to them.',
+    'The seven escapees have one purpose now: bringing him home. Even those already delivered home come to help. No one resumes the escape. Between one moment and the next, an enormous man in a dark coat is being brought safely back by seven intensely determined black puffballs. None abandons him. The logistics, for once, belong entirely to them.',
     'Marina opens the penthouse door. Her expression changes before she speaks. Albedo clears space; Durin is already beside her, helping support Feofan as they bring him in.',
     ['Marina','“Feo? We’ve got you. You’re home.”'],
     'The original thirteen stay contained. The seven fugitives settle close and remain there voluntarily. No one tests the latch. No one touches the route diagram.',
@@ -48,7 +48,7 @@ export const ENDINGS = {
     'He cups the back of Feofan’s neck and rests his forehead against his. Feofan’s next breath catches for an entirely different reason. This time, he lets himself be held.',
     'Marina stays within reach. Albedo draws the curtains a little closer; Durin settles a blanket over Feofan’s legs. A Dottomon lays its tiny arm on his sleeve and leaves it there.',
     ['Zandik','“You’re done for today. Stay here with me.”'],
-    'Twenty assistants remain exactly where they are. The rebellion is over.'
+    'Twenty assistants remain exactly where they are. The rebellion is over. Beside the untouched route diagram, the lighter stays closed.'
   ]},
   home:{label:'BAD ENDING',title:'You had one job',mark:'I',color:'home',breaks:[6,13],chapters:['An unfinished search.','He counts.','The door closes.'],scene:'Northland Bank · Penthouse',tagline:['Zandik is feeling better.','Unfortunately, so is his ability to judge you.'],lines:s=>[
     'Feofan returns to the penthouse. Marina looks past him into the hall. He closes the door before she has to ask a second question.',
@@ -63,7 +63,7 @@ export const ENDINGS = {
     'Feofan gives him a precise account. The places searched. The assistants secured. The part he did not finish. Zandik lets him speak to the end.',
     ['Zandik','“I asked you to keep them at home. Now I have to go and find them myself.”'],
     ['Feofan','“Yes.”'],
-    'That simple agreement does nothing to soften the disappointment. For a moment, Feofan would prefer an argument. He has answers for arguments.',
+    'That simple agreement does nothing to soften the disappointment. For a moment, Feofan would prefer an argument. He has answers for arguments. He has no useful answer to the coat Zandik has only just taken off.',
     ['Feofan','“I can come with you.”'],
     ['Zandik','“Stay with the ones who are here. I need to know they’ll still be here when I get back.”'],
     'Zandik puts his coat on again. He is feeling better, and he is plainly annoyed. He takes the location notes Feofan offers and checks them once before leaving.',
@@ -85,7 +85,7 @@ export const ENDINGS = {
       `${many?'They stop':'It stops'} beside the worktable. A small, eager trill breaks the quiet. The offering is presented with absolute confidence.`,
       'Zandik slowly looks up. For a moment, his face is blank with the effort of shifting his attention. Then his gaze moves to the open door.',
       ['Zandik','“No.”'],
-      'A little arm lifts the offering higher. The work is right there. Surely he can see why help is needed.',
+      'A little arm lifts the offering higher, then hesitates at the expression on his face. The work is right there. Surely he can see why help is needed.',
       ['Zandik','“Put it down. Do not touch anything else.”'],
       'His voice is low and unmistakably angry. He closes his eyes against the light while a tiny object is carefully set on the table.',
       'Feofan reaches the doorway. The sight tells him everything: the interrupted work, his husband’s hand at his brow, the assistants waiting to be useful.',
@@ -96,7 +96,7 @@ export const ENDINGS = {
       ['Zandik','“Take them home. I need the room quiet.”'],
       'There is no clever answer to that. Feofan nods. The little red eyes turn between them; for the first time, the offering does not seem to have achieved what was intended.',
       'Zandik turns back to his notes. His migraine is still there. The work is still unfinished. The interruption he asked Feofan to prevent has happened.',
-      'Outside the laboratory, Feofan pauses with his hand on the closed door. Then he makes sure it stays closed.'
+      'Outside the laboratory, Feofan pauses with his hand on the closed door. Then he makes sure it stays closed. Behind him, no one chirps.'
     ];
   }}
 };

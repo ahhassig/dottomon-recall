@@ -19,5 +19,5 @@ export const LOCATIONS = {
 };
 
 export const MISSION_SECONDS = 20 * 60;
-export const SAFE_CHANCE = 0.33;
+export const SAFE_CHANCE = 0.5;
 export const COSTS = Object.freeze({capture:15, failure:30, call:20, smoking:60, search:30, palace:60});
