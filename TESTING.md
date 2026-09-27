@@ -18,6 +18,6 @@ Browser checks completed: desktop title and complete Secret route; date recovery
 
 Accessibility follow-up: ending announcements now report final totals, and replay clears the previous announcement; covered in the UI regression test.
 
-Checks covered by automated UI/engine tests include: v0.3 label and 50% instructions; automatic date follow; 320px/390px/768px layouts; both node maps; capture feedback; modal fit and focus; three-scene ending navigation; report; archive discovery and replay/reload persistence; no horizontal overflow or game console errors.
+Automated UI/engine tests cover all four ending routes, capture rules, progression, hint use, timer/stress rules, report templates, archive persistence/reset, and replay. Browser layout checks are recorded separately above.
 
 Reduced-motion CSS disables animations and transitions globally. Idle animations are finite and ending distress has no movement. A Chromium phone-width check is not a physical iPhone/Safari test.
