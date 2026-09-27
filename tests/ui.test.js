@@ -21,13 +21,13 @@ test('UI routes render, date follow has no second decision, and archive survives
   const visit=id=>click('visit',{id});
   const capture=(method='safe')=>{click('capture',{method});if(document.body.dataset.phase==='result')click('continue');};
   const city=(method='safe')=>{visit('pastry');capture(method);visit('alchemy');capture(method);visit('palace');click('map');};
-  const report=()=>{for(let i=0;i<3;i++)click('ending-next');assert.match(app.innerHTML,/Hints used/);};
+  const report=()=>{assert.doesNotMatch(elements.get('#announcer').textContent,/Stress/);assert.match(elements.get('#announcer').textContent,/recovered/);for(let i=0;i<3;i++)click('ending-next');assert.match(app.innerHTML,/Hints used/);};
   assert.match(app.innerHTML,/0\.3/);click('gallery');assert.equal((modal.innerHTML.match(/<h3>\?\?\?<\/h3>/g)||[]).length,4);click('close');
   click('rules');assert.match(modal.innerHTML,/50% chance/);click('close');start();
   click('call-open');click('call',{person:'marina'});assert.match(modal.innerHTML,/NO NEW IDEAS/);click('close');
   visit('pastry');click('capture',{method:'safe'});assert.match(app.innerHTML,/PARTNER FOLLOWS/);assert.match(app.innerHTML,/2<em> \/ 7/);assert.doesNotMatch(app.innerHTML,/data-action="capture"/);click('continue');
   visit('alchemy');capture();visit('palace');click('map');for(const id of ['archives','operations','service','reagents']){visit(id);capture();}
-  assert.match(app.innerHTML,/The last one home/);report();assert.match(app.innerHTML,/All accounted for/);click('reset');click('gallery');assert.match(modal.innerHTML,/All accounted for/);assert.equal((modal.innerHTML.match(/<h3>\?\?\?<\/h3>/g)||[]).length,3);click('close');
+  assert.match(app.innerHTML,/The last one home/);report();assert.match(app.innerHTML,/All accounted for/);click('reset');assert.equal(elements.get('#announcer').textContent,'');click('gallery');assert.match(modal.innerHTML,/All accounted for/);assert.equal((modal.innerHTML.match(/<h3>\?\?\?<\/h3>/g)||[]).length,3);click('close');
   start();city('risky');for(const id of ['archives','operations','service','reagents']){visit(id);capture('risky');}assert.match(app.innerHTML,/lighter won’t catch/);report();assert.match(app.innerHTML,/Mutiny cancelled/);click('reset');
   start();click('home-open');click('close');assert.equal(document.body.dataset.phase,'map');click('home-open');click('home-confirm');report();assert.match(app.innerHTML,/You had one job/);click('reset');
   start();city();for(let i=0;i<25&&document.body.dataset.phase!=='ending';i++){visit('depot');if(document.body.dataset.phase!=='ending')click('map');}report();assert.match(app.innerHTML,/They found him/);click('reset');

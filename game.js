@@ -131,7 +131,10 @@ function dispatch(action) {
   if(state===previous) return;
   if(state.ending&&modal.open) modal.close();
   render(action.type!=='CALL'&&action.type!=='CLOSE_HINT');
-  if(isPlaying(state)) document.querySelector('#announcer').textContent=`${time(state.timeRemaining)} remaining. ${state.recovered} of 7 recovered. Stress ${state.stress} percent. ${state.cigarettes} cigarettes smoked.`;
+  const announcer=document.querySelector('#announcer');
+  if(state.ending) announcer.textContent=`${ENDINGS[state.ending].title}. ${time(state.timeRemaining)} remaining. ${state.recovered} of 7 recovered. ${state.cigarettes} cigarettes smoked.`;
+  else if(!isPlaying(state)) announcer.textContent='';
+  else announcer.textContent=`${time(state.timeRemaining)} remaining. ${state.recovered} of 7 recovered. Stress ${state.stress} percent. ${state.cigarettes} cigarettes smoked.`;
 }
 function showModal(content) {
   lastFocus=document.activeElement;
