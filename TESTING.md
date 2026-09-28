@@ -1,23 +1,25 @@
-# Version 0.3 verification
+# Version 0.4 verification
 
-`npm test`: **42 passing tests**, zero failures.
+`npm test`: **48 passing tests**, zero failures.
 
-The suite preserves the v0.2 ending, timer, stress, permanent-capture, hint, decoy, and Palace progression checks. It adds exact 50% boundaries; automatic date-partner recovery with no second random call or stress; date timeout/unlock boundaries; hint summaries; validated archive persistence; replay versus gallery reset; corrupt/blocked storage handling; and UI event/template routes through every ending. It also runs 200 seeded adversarial mission simulations.
+Coverage includes every valid placement (72 assignments), every authored identity/location pairing (14), intact date pairing, hidden map occupancy, the recount and 7→8 objective, both Dottoling locations, stale courier search invalidation, city/Palace gating, Safe probability boundary, Risky guarantee, stress/smoking, sixth-critical Secret boundaries, all four endings and their precedence, hint costs/targets, Return Home, timeouts, replay, v0.3 archive migration, all four achievements, confirmed progress reset, and corrupt/blocked storage.
 
-| Deterministic route | Result | Time remaining | Cigarettes |
-| --- | --- | --- | --- |
-| Six successful Safe captures plus voluntary partner; no detours | Good | 14:15 | 0 |
-| Four Risky, two successful Safe, voluntary partner | Good | 10:15 | 4 |
-| All Risky; last capture triggers existing Secret rule | Secret | 9:15 | 5 |
+The UI integration test drives the real event handler and templates through all 72 assignments and all endings using a minimal DOM stand-in. It does not test browser layout. 300 adversarial runs also check state invariants and termination.
+
+## Reproducible balance probes
+
+`node tests/playtest.mjs` uses 1,000 seeded runs per policy, without hints. It searches unvisited nodes in a random order using only player-visible search state, never hidden assignments. These are engine simulations, not human playtests or estimates of actual player behavior.
+
+| Capture policy | Good | Secret | Bad 1 | Bad 2 | Mean time left in Good runs |
+| --- | --- | --- | --- | --- | --- |
+| Always Safe | 729 | 64 | 0 | 207 | 4:17 |
+| One failed Safe, then Risky | 927 | 60 | 0 | 13 | 4:14 |
+| Always Risky | 0 | 1,000 | 0 | 0 | — |
+
+Perfect Safe captures on a known direct route with fountain Dottoling finish at 14:00. The revised Secret is intentionally reachable with six Risky captures, while five cigarettes plus a final Safe capture can still yield Good. The 20-minute timer is unchanged. Human feedback is still needed on whether searching is enjoyable and how often Secret feels accidental.
 
 ## Browser QA
 
-The UI integration test uses a minimal DOM stand-in; it does not assert actual browser layout. Cloud Browser blocks localhost/file previews in this environment, so desktop/mobile rendering checks use the deployed GitHub Pages site after the regression gate.
+Use `tests/responsive.html` for 320px, 390px, 768px and desktop widths. Release checks: title/tuft, both maps, recount transition, both Dottoling cues, updated counters, encounter/results, three-scene ending and report, achievements/archive, keyboard dialog dismissal and replay/reload persistence. Cloud Browser does not permit localhost/file previews here, so deployed-site layout checks follow the automated regression gate.
 
-Browser checks completed: desktop title and complete Secret route; date recovery (2/7, one cigarette, 18:00); Palace unlock/scatter/map; ending report; archive reveal, replay and reload persistence; Escape dismissal. Narrow city-map and archive checks at 320px, encounter/results at 390px, and map width at 768px had no horizontal overflow. No game-origin console errors were observed (browser-extension metadata errors are unrelated).
-
-Accessibility follow-up: ending announcements now report final totals, and replay clears the previous announcement; covered in the UI regression test.
-
-Automated UI/engine tests cover all four ending routes, capture rules, progression, hint use, timer/stress rules, report templates, archive persistence/reset, and replay. Browser layout checks are recorded separately above.
-
-Reduced-motion CSS disables animations and transitions globally. Idle animations are finite and ending distress has no movement. A Chromium phone-width check is not a physical iPhone/Safari test.
+Reduced-motion CSS disables animations/transitions; distress scenes have no motion. Chromium phone-width checks are not a physical iPhone/Safari test.
