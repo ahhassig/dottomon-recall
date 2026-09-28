@@ -1,4 +1,4 @@
-// Fixed-location flavor. Future placement variants can extend these records.
+// Original-location flavor, reused by the authored placement variants.
 export const CAPTURE_FLAVOR = {
   pastry:{risky:'Feofan intercepts the first guest between chair and teapot, keeping its feet clear of the hot cup. An indignant trill turns every head in the shop. He has the assistant safely; his pulse takes longer to settle.',return:'Feofan leaves a generous tip. Neither guest has offered to reimburse him.'},
   alchemy:{risky:'He catches the reaching arm, secures the vial, and collects the assistant in one decisive movement. The display clatters behind him. Everything is intact, but his hands need a moment to believe it.',return:'The shopkeeper adds a line to her sales policy. Feofan declines to proofread it.'},

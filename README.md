@@ -1,65 +1,71 @@
-# DOTTOMON RECALL · v0.3
+# DOTTOMON RECALL · v0.4
 
 Seven missing. Twenty minutes. One migraine.
 
 **[Play DOTTOMON RECALL](https://ahhassig.github.io/dottomon-recall/)** — public, no account required.
 
-A lightweight static narrative game for Lex’s Marina AU. Play as Feofan and recover seven escaped Dottomons before they interrupt Zandik’s work. HTML, CSS, and vanilla JavaScript; no build, backend, dependencies, accounts, tracking, or external art.
+A small static narrative game for Lex’s Marina AU. Feofan must recover Zandik’s escaped assistants while keeping his afternoon quiet. HTML, CSS, and vanilla JavaScript; no framework, build, backend, tracking, or required external service. All graphics are original code-native artwork, including the soft blue tufts and Dottoling’s cat costume. No official image assets are bundled.
 
-## Version 0.3
+## Version 0.4
 
-- Safe Capture now succeeds at **50%**. Failure still costs 30s and adds 50% stress; Risky still guarantees capture and immediately invokes the existing critical-stress rules.
-- The first pastry date uses normal capture rules. Its partner follows automatically: no second roll or stress, with a 15s recovery cost. The pair costs 30s on Safe success or 90s on an ordinary Risky capture, including its smoking break.
-- Original inline vector environments, subtle fugitive props, clearer dialogue cards, frosted UI, and distinct ending tableaux. No image requests, official game assets, fonts, or external services are required. CSS backgrounds remain usable without the decorative SVG layer.
-- Location-specific failure/risky feedback, smoking-break variants, return flavor, and a tender voluntary date-partner scene.
-- The existing three-scene endings have stronger visual and written payoffs; summaries now include hints used and the ending obtained.
-- **Ending Archive** on the title and report screens. Discovered endings persist through replay and browser reload via localStorage. Resetting the archive requires confirmation and never changes the current run. Blocked storage falls back to session-only progress with a clear notice.
-- Short, finite assistant animations and transition feedback; reduced-motion preferences disable motion. No animated distress in the Secret Ending.
-- Twenty action-based minutes, seven fixed fugitives, existing maps and one-use hints remain unchanged. Reading, menus, and returning to the map stay free.
+- Each fugitive has two authored destinations. Runs sample one of 72 valid assignments; the date pair remain together and occupied rooms never conflict. Unexplored nodes reveal no occupancy.
+- After the three original city fugitives are recovered, Marina’s free recount call reveals the unexpected Dottoling. The objective grows from seven to eight. Search the fountain or courier forecourt before entering the Palace. Both locations receive a fresh search state, including a previously cleared courier station.
+- All 14 identity/location pairings have encounter, Safe success, Safe failure, Risky success, and return prose. Empty and secured visits have appropriate text.
+- Hints follow actual placements, remaining identities, sightings and already supplied leads. Each person still gives one hint per run for 20s. Marina’s mandatory recount does not use a hint.
+- Safe succeeds at 50%; failure costs 30s and adds 50% stress. Risky guarantees capture and immediately fills stress. Capture costs 15s. The second date guest follows automatically for another 15s, with no roll or stress.
+- The first five critical-stress episodes each cost 60s, complete one cigarette, and reset stress. **The sixth critical episode triggers Secret before another cigarette is completed.** Five cigarettes, a half-full stress bar, or a final Safe capture alone do not trigger Secret.
+- Four persistent achievements: Full Recall (four endings), Cold Plunge (failed fountain Safe capture), Ahead of Schedule (all eight with at least 10:00), No Outside Help (all eight without hints).
+- v0.3 Ending Archive discoveries are preserved. Replay resets the run, including placements, but keeps both collections. Reset Progress clears endings and achievements only after confirmation. Unavailable storage falls back to page-session progress.
+- The timer remains **20:00**, action-based. Maps, four three-scene endings, touch controls and reduced-motion support remain in place.
+
+## Curated destinations — spoilers
+
+| Fugitive | First destination | Second destination |
+| --- | --- | --- |
+| Date pair | Pastry Shop | Covered Market tea stall |
+| Chemist | Alchemical Supply | Snowy Promenade |
+| Archivist | Archives | Equipment Depot |
+| Coordinator | Operations Wing | Guardroom |
+| Runner | Service Corridors | Guardroom |
+| Specialist | Reagent Storage | Equipment Depot |
+| Dottoling | Plaza Fountain | Courier forecourt |
+
+Coordinator/Runner cannot both take the Guardroom; Archivist/Specialist cannot both take the Depot. Sampling uses the complete valid assignment list, so no reroll loop can fail. Assignments stay fixed throughout a run.
 
 ## Structure
 
 | File | Purpose |
 | --- | --- |
-| `index.html`, `style.css` | Accessible responsive shell and original fantasy interface |
-| `game.js` | Maps, encounters, dialogs, ending scenes, and touch controls |
-| `engine.js` | Pure state transitions, time, stress, captures, and ending priority |
-| `data/locations.js` | Fixed locations and balance constants |
-| `data/dialogue.js` | Opening, encounters, failures, and contextual hints |
-| `data/endings.js` | Ending scenes and conditional laboratory cast |
-| `data/characters.js` | Lightweight original speaker emblems |
-| `data/visuals.js`, `data/flavor.js` | Original vector scenery, fugitive cues, and capture narration |
-| `progress.js` | Validated, resilient browser Ending Archive storage |
-| `assets/ui/` | Site emblem; future assets can be added under `assets/` |
-| `tests/*.test.js` | Engine routes, boundaries, randomized state checks, archive storage, and UI event/template integration |
-| `tests/responsive.html` | Developer-only embedded viewport for layout checks |
+| `engine.js` | Pure mission transitions; time, capture, stress, recount and ending precedence |
+| `game.js`, `style.css`, `index.html` | Responsive UI, modals, reports, original CSS creatures |
+| `data/locations.js` | Map geography and unchanged timing constants |
+| `data/placements.js` | Curated pools, valid assignments and mission-count helpers |
+| `data/encounters.js` | Identity/location variants, empty rooms, recount dialogue |
+| `data/hints.js` | Actual-placement clues and lead selection |
+| `data/dialogue.js`, `data/flavor.js`, `data/endings.js` | Existing opening, original encounters, capture flavor and endings |
+| `data/visuals.js`, `data/characters.js` | Original inline scenery and speaker emblems |
+| `progress.js` | Validated Ending Archive and achievement persistence |
+| `tests/` | Engine, persistence and UI regression tests; browser viewport harness |
+| `tests/playtest.mjs` | Reproducible randomized engine playthroughs |
 
-## Run and test
+## Run, test and publish
 
-Serve the folder with `python3 -m http.server 4173`, then open `http://localhost:4173`. ES modules require HTTP hosting. The game itself needs no Node.js installation.
+Serve the root with `python3 -m http.server 4173`. ES modules require HTTP. The game itself needs no Node.js installation.
 
-Run `node --test tests/*.test.js` with Node.js 18+ (or `npm test`). No package installation is needed.
+With Node.js 18+, run `npm test` and `node tests/playtest.mjs`; no dependency installation is required. See `TESTING.md` for scope and measured results.
 
-GitHub Pages deploys `main` from the repository root. All module/asset URLs are relative; release query strings keep browser caches from mixing interface versions.
+GitHub Pages serves `main` from the repository root with `.nojekyll`. Relative URLs support the repository subpath. Release query strings refresh browser caches.
 
-## Remaining rules
+## Rules and ending precedence
 
-City travel is 30s, with 45s routes to the Promenade and Courier Station. Palace entry costs 60s; interior room movement costs 30s. Empty searches add 30s. Returning to the map is free. Revisits still cost travel/search time; captured assistants never escape again.
+City travel: 30s, or 45s to the Promenade/Courier. Palace entry: 60s. Interior movement: 30s. Empty searches: +30s. The fountain is at the city hub (0s travel); a fruitless fountain search still costs 30s. Reading, map returns and recount dialogue are free. Recovered assistants never escape again.
 
-The Palace unlocks only after all three specific city assistants are recovered. The lobby scatter leads to six searchable rooms: four occupied and two empty. Maps conceal unexplored occupancy. Visited empty nodes become CLEARED and fully resolved occupied nodes become SECURED.
+Actions resolve atomically: **sixth critical episode → all eight recovered → timeout → continue**. Time clamps to zero. Timeout before Palace entry yields Bad 1; after entry it yields Bad 2 and only uncaptured Palace identities reach the laboratory. Return Home always requires confirmation and ends an unfinished run with Bad 1. Secret rescue brings everyone home voluntarily; the report preserves actual recoveries made during gameplay.
 
-Marina, Albedo, and Durin each supply one contextual hint per run for 20s. Used contacts show NO NEW IDEAS. Return Home requires confirmation and ends an incomplete search with Bad Ending 1. Play Again clears every mission field and the ending-scene position, while preserving the Ending Archive. Browser storage uses `dottomon-recall.endings.v1`; no personal data or run history is stored.
+The browser stores only ending and achievement IDs under `dottomon-recall.endings.v1` and `dottomon-recall.achievements.v1`. No personal data, run history or login is collected.
 
-## Endings — spoilers
+Dottomons are intelligent preserved continuity structures, not pets. They communicate through sounds and behavior. Anxiety and migraine are treated sincerely. This unofficial fan game is not affiliated with the original game's creators.
 
-Five completed smoking breaks arm the Secret Ending. The next stress-producing event, or the seventh capture while armed, triggers it. A final capture that itself causes break five also triggers Secret. There is never a sixth completed cigarette. All seven escapees voluntarily stay home afterward; the report preserves the player's actual recovery count.
+## Next version
 
-Seven recoveries without a Secret trigger yield Good. Timeout before Palace entry yields Bad 1; timeout after entry yields Bad 2, featuring only the remaining uncaptured Palace assistants. A confirmed early return yields Bad 1 even inside the Palace.
-
-Each action resolves atomically, including capture, arrival, and any automatic break. Ending precedence is **Secret → Good → timeout → continue**. Time clamps to zero. A last capture on the time boundary therefore wins over timeout. Merely arming Secret at timeout does not trigger it.
-
-Dottomons are intelligent continuity patterns of Zandik’s former cooperative Segments, not pets. They communicate through sounds and behavior. Migraine and anxiety are treated sincerely. This unofficial fan game is not affiliated with the original game's creators. Private source lore documents are not included in this repository.
-
-## Deliberately deferred
-
-v0.4: curated randomized placements, placement-aware hints, the surprise Dottoling, four achievements, and the revised sixth-critical-episode Secret rule. v0.5: alternate writing, the full environment/ending illustration pass, optional audio, and final replay/balance polish. The v0.3 Secret trigger is intentionally unchanged.
+v0.5 is reserved for additional alternate writing, larger environment/ending illustrations, replay polish and optional audio. Any balance adjustments should follow real player feedback; the v0.4 timer has not been shortened.

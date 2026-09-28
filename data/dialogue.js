@@ -175,23 +175,3 @@ export const SCATTER = [
   'One slips behind a passing clerk. Another vanishes around a pillar. The third is simply no longer where it was. Feofan memorizes the doors, alerts the lobby staff, and sets about cutting off access to the research wing.',
   'Three fugitives have disappeared into the Palace. A fourth was already somewhere inside. Their destinations remain unknown.'
 ];
-
-export function hintFor(person,s) {
-  const has = id => !s.capturedDottomons.includes(id);
-  let target;
-  if (!s.palaceEntered && ['tea-one','tea-two','chemist'].every(id=>!has(id))) return {text:'“All three from the city are home. The Palace is your next stop. We’ll keep everyone here.”',follow:null};
-  if (!s.palaceEntered) {
-    target = person==='albedo' && has('chemist') ? 'alchemy' : (has('tea-one') || has('tea-two')) ? 'pastry':'alchemy';
-  } else {
-    const preferences = {marina:['reagents','operations','archives','service'],albedo:['archives','reagents','operations','service'],durin:['service','operations','reagents','archives']};
-    const identities={archives:'archivist',operations:'coordinator',service:'runner',reagents:'specialist'};
-    target=preferences[person].find(id=>has(identities[id]));
-  }
-  const lines={
-    marina:{pastry:'“Two of them went missing together? Feo, they might’ve gone somewhere nice instead of somewhere useful. Somewhere they can sit down and get spoiled.”',alchemy:'“If it wanted supplies for its own experiments, it’d go somewhere that sells them. And if someone told it no… yeah. I’d check there.”',reagents:'“One of them never even came through the lobby, right? I’d look near the specialist supplies. It’s probably been planning a helpful little delivery this whole time.”',operations:'“What if it’s trying to organize the help instead of doing everything itself? A room full of people it can boss around would be pretty tempting.”',archives:'“If it thinks Zandik’s missed something, it’ll want proof. Somewhere with his old research, maybe?”',service:'“You’ve checked the sensible routes. Now think of all the tiny, annoying ones it knows you can’t fit through.”'},
-    albedo:{pastry:'“The two disappeared together rather than independently. A shared social objective seems plausible. Tea would be a reasonable hypothesis.”',alchemy:'“An independent experiment requires materials. I’d prioritize a commercial reagent supplier over an open public space.”',archives:'“A consciousness pattern derived from Zandik may prioritize evidence. If it’s looking for information, stored research records would be a logical destination.”',reagents:'“A specialist component is more likely to be stored near the working laboratory than with general equipment. I’d follow that distinction.”',operations:'“It may have decided that coordination is the missing variable. Dispatches and requisitions would give it something to influence.”',service:'“The remaining individual may be optimizing the route rather than the research. Maintenance passages offer access ordinary corridors don’t.”'},
-    durin:{pastry:'“I saw those two sharing a cushion earlier. Maybe they wanted more time together. Somewhere warm, with something sweet?”',alchemy:'“The one who’s missing kept looking at an empty vial. I think it wanted to replace what was inside. It might’ve gone to a shop.”',service:'“Maybe it went somewhere small people aren’t supposed to fit. They like doing that. I’d check the little maintenance passages.”',operations:'“One of them kept arranging everyone in a line before they left. Maybe it’s still trying to get other people organized.”',reagents:'“If it’s bringing him a present for his work, it’ll want the really useful things. Not the ordinary tools. The special supplies.”',archives:'“Maybe it wants to show him something he hasn’t seen. The others kept pointing at papers earlier. Could it be looking through old notes?”'}
-  };
-  const stuck = (s.attempts[target]||0)>=3;
-  return {text:lines[person][target] || '“Keep checking the rooms you haven’t secured. We have everyone you’ve sent home.”',follow:stuck?'“The one you’ve already found is still there. You can try a guaranteed capture if another gentle approach isn’t working.”':null};
-}

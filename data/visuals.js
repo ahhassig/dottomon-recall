@@ -6,7 +6,8 @@ const city=()=>`<circle cx="470" cy="70" r="30" fill="#cedde5" opacity=".7"/><pa
 const shelves=(vials=false)=>repeat(4,row=>`<path d="M25 ${65+row*68}H575" stroke="#9eb0bd" stroke-opacity=".4" stroke-width="7"/>${repeat(12,i=>{const x=35+i*45,y=24+row*68;return vials?`<path d="M${x+8} ${y}h10v12l9 25h-28l9-25Z" fill="${i%3?'#416f7a':'#7e8e92'}" stroke="#b6d5db" stroke-opacity=".4"/><path d="M${x+3} ${y+26}h20" stroke="#acdce0"/>`:`<path d="M${x} ${y-3}h${18+i%3*5}v41h-${18+i%3*5}Z" fill="${i%3?'#263c51':'#635b57'}" stroke="#a6b2c1" stroke-opacity=".25"/><path d="M${x+5} ${y+3}v27" stroke="#c3af83" stroke-opacity=".4"/>`;})}`);
 export function scenery(scene) {
   let shape='';
-  if(['plaza','promenade','market','courier'].includes(scene)) shape=city();
+  if(scene==='fountain') shape=city()+`<ellipse cx="300" cy="308" rx="205" ry="57" fill="#526d7f" stroke="#bfd6de" stroke-width="8"/><ellipse cx="300" cy="302" rx="185" ry="44" fill="#467b91"/><path d="M270 293v-91h60v91m-76-87h92m-100 99q55 20 110 0" stroke="#94c7d9" fill="#344e62" stroke-width="7"/>`;
+  else if(['plaza','promenade','market','courier'].includes(scene)) shape=city();
   else if(scene==='penthouse') shape=`${windowArch(50,25,160,235)}${windowArch(390,25,160,235)}<path d="M0 0h50l28 280H0m600-280h-50l-28 280h78" fill="#0d1727"/><path d="M145 290v-65q0-20 20-20h270q20 0 20 20v65M130 245h40v80h-40m300-80h40v80h-40" fill="#24334b" stroke="#718598" stroke-width="2"/><ellipse cx="300" cy="345" rx="210" ry="30" fill="#6e6579" opacity=".25"/>`;
   else if(scene==='pastry') shape=`${windowArch(190,15,220,240)}<path d="M0 0h600v70H0Z" fill="#273a48"/>${repeat(8,i=>`<path d="M${i*80} 0v70q20 24 40 0V0" fill="#a8957c" opacity=".45"/>`)}<ellipse cx="300" cy="270" rx="185" ry="32" fill="#7d695b" stroke="#c4b69a"/><path d="M285 298v82m30-82v82" stroke="#887a6d" stroke-width="9"/><path d="M247 220h35v20q-18 18-35 0Zm35 3q25 0 0 15" fill="#cbd3cf" stroke="#cbd3cf"/><path d="M335 232h48l-10-19h-28Z" fill="#c09a6b"/>`;
   else if(['alchemy','reagents','archives','depot','operations','guardroom'].includes(scene)) shape=`${shelves(['alchemy','reagents'].includes(scene))}<path d="M35 280h530v20H35m30 0v100m470-100v100" fill="#253344" stroke="#839bad" stroke-opacity=".5"/>${scene==='archives'?'<path d="M220 267v-55l70 12 70-12v55l-70 12Z" fill="#acb6ba"/><path d="M290 224v55" stroke="#455d70"/>':''}`;
@@ -16,6 +17,7 @@ export function scenery(scene) {
   return `<svg class="environment-art" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${shape}<path d="M15 385V15h570v370Z" stroke="#b0c5d5" stroke-opacity=".18" fill="none"/></svg>`;
 }
 export const FUGITIVE_CUES={
+  dottoling:{cue:'cat',label:'The unexpected follower in a cat costume'},
   'tea-one':{cue:'tea',label:'Tea enthusiast'},'tea-two':{cue:'cake',label:'The other half of the date'},
   chemist:{cue:'vial',label:'Unauthorized researcher'},archivist:{cue:'paper',label:'Archivist'},
   coordinator:{cue:'seal',label:'Self-appointed coordinator'},runner:{cue:'runner',label:'Shortcut specialist'},specialist:{cue:'vial',label:'Reagent specialist'}
