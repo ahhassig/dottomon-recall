@@ -1,4 +1,4 @@
-# DOTTOMON RECALL · v0.4
+# DOTTOMON RECALL · v0.5
 
 Seven missing. Twenty minutes. One migraine.
 
@@ -6,7 +6,17 @@ Seven missing. Twenty minutes. One migraine.
 
 A small static narrative game for Lex’s Marina AU. Feofan must recover Zandik’s escaped assistants while keeping his afternoon quiet. HTML, CSS, and vanilla JavaScript; no framework, build, backend, tracking, or required external service. All graphics are original code-native artwork, including the soft blue tufts and Dottoling’s cat costume. No official image assets are bundled.
 
-## Version 0.4
+## Version 0.5 — content and replay polish
+
+- Original vector illustrations give every location its own architectural details and props: the market arcade, canal railings, courier cart, spring-fed fountain, library ladder, dispatch board, apparatus depot, watch benches, and quieter penthouse/laboratory scenes. CSS scenery fallbacks remain; no external images or services are required.
+- All 14 identity/location pairings gain an alternate character beat, Safe success and short retry scene. Stable presentation choices do not consume gameplay randomness. Feofan's encounter and map notes respond to stress, exhaustion and low time.
+- Marina, Albedo and Durin have more individual hint voices. Previously purchased clues can be reviewed freely from Call Penthouse; new calls still cost 20s and each person remains limited to one.
+- After discovering any ending, **Skip opening** starts a fresh randomized search directly. The full opening remains available through Begin Recall.
+- Ending Archive now rereads all three scenes using the most recent saved report for that ending. Reports preserve actual counts, remaining Palace identities, time, cigarettes and hints; reading never changes the current run. Older discoveries stay unlocked and receive a short coda until the ending is reached again to save its report. Each ending has a new coda.
+- Achievement cards explain collection progress. Reset Progress also clears saved ending reports after confirmation. Corrupt or blocked storage cannot break play.
+- **54 tests pass**, including all 72 placement routes and all four archive readers. Three thousand seeded balance probes exactly match v0.4. The 20-minute clock, placement pools, capture odds, costs and Secret trigger are unchanged.
+
+## Gameplay retained from v0.4
 
 - Each fugitive has two authored destinations. Runs sample one of 72 valid assignments; the date pair remain together and occupied rooms never conflict. Unexplored nodes reveal no occupancy.
 - After the three original city fugitives are recovered, Marina’s free recount call reveals the unexpected Dottoling. The objective grows from seven to eight. Search the fountain or courier forecourt before entering the Palace. Both locations receive a fresh search state, including a previously cleared courier station.
@@ -42,6 +52,7 @@ Coordinator/Runner cannot both take the Guardroom; Archivist/Specialist cannot b
 | `data/placements.js` | Curated pools, valid assignments and mission-count helpers |
 | `data/encounters.js` | Identity/location variants, empty rooms, recount dialogue |
 | `data/hints.js` | Actual-placement clues and lead selection |
+| `data/replay.js` | Pure presentation variants, pressure prose and ending codas |
 | `data/dialogue.js`, `data/flavor.js`, `data/endings.js` | Existing opening, original encounters, capture flavor and endings |
 | `data/visuals.js`, `data/characters.js` | Original inline scenery and speaker emblems |
 | `progress.js` | Validated Ending Archive and achievement persistence |
@@ -62,10 +73,10 @@ City travel: 30s, or 45s to the Promenade/Courier. Palace entry: 60s. Interior m
 
 Actions resolve atomically: **sixth critical episode → all eight recovered → timeout → continue**. Time clamps to zero. Timeout before Palace entry yields Bad 1; after entry it yields Bad 2 and only uncaptured Palace identities reach the laboratory. Return Home always requires confirmation and ends an unfinished run with Bad 1. Secret rescue brings everyone home voluntarily; the report preserves actual recoveries made during gameplay.
 
-The browser stores only ending and achievement IDs under `dottomon-recall.endings.v1` and `dottomon-recall.achievements.v1`. No personal data, run history or login is collected.
+The browser stores ending and achievement IDs under `dottomon-recall.endings.v1` and `dottomon-recall.achievements.v1`, plus one latest report per discovered ending under `dottomon-recall.reports.v1`. Reports contain only bounded game numbers and known assistant IDs. No personal data, login, analytics or network reporting is used.
 
 Dottomons are intelligent preserved continuity structures, not pets. They communicate through sounds and behavior. Anxiety and migraine are treated sincerely. This unofficial fan game is not affiliated with the original game's creators.
 
-## Next version
+## Before v1.0
 
-v0.5 is reserved for additional alternate writing, larger environment/ending illustrations, replay polish and optional audio. Any balance adjustments should follow real player feedback; the v0.4 timer has not been shortened.
+Use v0.51 / v0.52 patches for player-reported bugs, small prose corrections and measured balance changes. The 20-minute timer stays in place until real playtest feedback supports a change. Physical iPhone/Safari QA and repeated human playtests remain useful release checks. Optional audio and large painted illustrations were not added to v0.5; the game stays silent and lightweight.

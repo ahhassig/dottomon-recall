@@ -1,6 +1,7 @@
-import {ENCOUNTERS} from './dialogue.js?v=0.4';
-import {CAPTURE_FLAVOR} from './flavor.js?v=0.4';
-import {remainingAt,assignedAt} from './placements.js?v=0.4';
+import {replayEncounter} from './replay.js?v=0.5';
+import {ENCOUNTERS} from './dialogue.js?v=0.5';
+import {CAPTURE_FLAVOR} from './flavor.js?v=0.5';
+import {remainingAt,assignedAt} from './placements.js?v=0.5';
 const defaults={'tea-one':'pastry',chemist:'alchemy',archivist:'archives',coordinator:'operations',runner:'service',specialist:'reagents'};
 export const VARIANTS={};
 for(const [id,location]of Object.entries(defaults)) {
@@ -75,7 +76,7 @@ const emptyOverrides={
  plaza:['Ripples without a passenger.','Feofan checks the spring-fed fountain and the sheltered spaces beneath its rim. Only a leaf circles the water. The fresh search turns up no small cat costume.']
 };
 export function encounterFor(s,location=s.location,target=remainingAt(s,location)[0]) {
-  if(target)return VARIANTS[target+':'+location];
+  if(target)return replayEncounter(s,target,location,VARIANTS[target+':'+location]);
   if(assignedAt(s,location).length)return {title:'Already safely home.',lines:['The area remains secure. Everyone recovered here is safely at the penthouse. No one has escaped again.']};
   const override=emptyOverrides[location];
   return override?{title:override[0],lines:[override[1]]}:ENCOUNTERS[location];

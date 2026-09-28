@@ -1,4 +1,4 @@
-import {CITY_DOTTOMONS,PALACE_DOTTOMONS} from './locations.js?v=0.4';
+import {CITY_DOTTOMONS,PALACE_DOTTOMONS} from './locations.js?v=0.5';
 // Each identity has exactly two authored destinations. The date is one placement unit.
 export const POOLS=Object.freeze({
   'tea-one':['pastry','market'],chemist:['alchemy','promenade'],

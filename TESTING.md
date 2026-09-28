@@ -1,6 +1,6 @@
-# Version 0.4 verification
+# Version 0.5 verification
 
-`npm test`: **48 passing tests**, zero failures.
+`npm test`: **54 passing tests**, zero failures.
 
 Coverage includes every valid placement (72 assignments), every authored identity/location pairing (14), intact date pairing, hidden map occupancy, the recount and 7→8 objective, both Dottoling locations, stale courier search invalidation, city/Palace gating, Safe probability boundary, Risky guarantee, stress/smoking, sixth-critical Secret boundaries, all four endings and their precedence, hint costs/targets, Return Home, timeouts, replay, v0.3 archive migration, all four achievements, confirmed progress reset, and corrupt/blocked storage.
 
@@ -18,7 +18,13 @@ The UI integration test drives the real event handler and templates through all 
 
 Perfect Safe captures on a known direct route with fountain Dottoling finish at 14:00. The revised Secret is intentionally reachable with six Risky captures, while five cigarettes plus a final Safe capture can still yield Good. The 20-minute timer is unchanged. Human feedback is still needed on whether searching is enjoyable and how often Secret feels accidental.
 
-## Browser QA
+## v0.5 regression additions
+
+Six new tests cover every replay variant without RNG draws or state mutation, pressure-note precedence, saved report reload/copy/reset, malformed report rejection and old discovery migration, early Return Home scene reconstruction, and session-only reports when storage is blocked. The existing UI route test now reads the Good archive through all 72 assignments, reads all four ending types after reload, verifies free clue review leaves the run unchanged, and tests Skip Opening at 20:00. `engine.js` changes only import cache versions; mission transitions are unchanged.
+
+The three policy probes above were rerun on v0.5 and produced identical outcomes, action counts and remaining times to v0.4. No balance adjustment was made. Browser QA for the new reader/scenery follows the feature-branch regression gate on Pages; the prior v0.4 live checks are retained below.
+
+## v0.4 live browser baseline
 
 Verified on the public GitHub Pages build on September 28, 2026, using normal UI controls and unmodified random outcomes:
 
