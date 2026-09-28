@@ -1,5 +1,5 @@
 export const ENDINGS = {
-  good:{label:'GOOD ENDING',title:'All accounted for',mark:'VII',color:'good',breaks:[6,13],chapters:['The last one home.','An entirely ordinary afternoon.','You can stop counting.'],scene:'Northland Bank · Penthouse',tagline:['Twenty assistants.','Twenty present.','There is absolutely nothing else Zandik needs to know.'],lines:()=>[
+  good:{label:'GOOD ENDING',title:'All accounted for',mark:'VIII',color:'good',breaks:[6,13],chapters:['The last one home.','An entirely ordinary afternoon.','You can stop counting.'],scene:'Northland Bank · Penthouse',tagline:['Twenty assistants.','Twenty present.','There is absolutely nothing else Zandik needs to know.'],lines:()=>[
     'The last Dottomon crosses the penthouse threshold. Feofan closes the door with one hand still on the latch, listening to the small sounds inside.',
     'He counts. This time, there is no gap.',
     ['Feofan','“Twenty.”'],
@@ -22,7 +22,7 @@ export const ENDINGS = {
     'Marina smiles into her tea. Albedo leaves the diagram where it is. Durin makes room as two puffballs nestle against Feofan’s coat.',
     'Twenty present. The work is finished. His husband is home. Feofan lets himself stop counting.'
   ]},
-  secret:{label:'SECRET ENDING',title:'Mutiny cancelled',mark:'XX',color:'secret',breaks:[7,14],chapters:['The lighter won’t catch.','All seven turn back.','Stay with me.'],scene:'The search ends · Then, home',tagline:['They wanted to help Zandik.','They loved Feofan more.'],lines:()=>[
+  secret:{label:'SECRET ENDING',title:'Mutiny cancelled',mark:'XX',color:'secret',breaks:[7,14],chapters:['The lighter won’t catch.','They all turn back.','Stay with me.'],scene:'The search ends · Then, home',tagline:['They wanted to help Zandik.','They loved Feofan more.'],lines:s=>[
     'Feofan reaches for another cigarette. He knows the movement; his hands have made it thousands of times. This time, his fingers cannot manage the lighter.',
     'It slips. He catches it against his coat and tries again. His hands are shaking too badly. His breath comes fast and shallow, and he cannot seem to get enough air.',
     ['Feofan','“Just—give me a moment.”'],
@@ -30,10 +30,10 @@ export const ENDINGS = {
     'He tries to steady himself. His knees give way. Then he loses consciousness.',
     'Every argument ends. The nearest Dottomon sets its carefully chosen prize on the floor without looking at it again.',
     'No more running. No more experiments. No more plans for Prime. Someone they love is on the ground, and the search has ceased to matter.',
-    'The seven escapees have one purpose now: bringing him home. Even those already delivered home come to help. No one resumes the escape. Between one moment and the next, an enormous man in a dark coat is being brought safely back by seven intensely determined black puffballs. None abandons him. The logistics, for once, belong entirely to them.',
+    `The escapees have one purpose now: bringing him home. Even those already delivered home come to help. No one resumes the escape. Between one moment and the next, an enormous man in a dark coat is being brought safely back by an intensely determined little rescue party. ${s.extraRevealed?'A pale cat hood bobs beside the dark coat; Dottoling has taken a corner.':'A damp pale cat hood joins them from the street. One more assistant had followed him out than he knew; it takes a corner of his coat.'} The logistics, for once, belong entirely to them.`,
     'Marina opens the penthouse door. Her expression changes before she speaks. Albedo clears space; Durin is already beside her, helping support Feofan as they bring him in.',
     ['Marina','“Feo? We’ve got you. You’re home.”'],
-    'The original thirteen stay contained. The seven fugitives settle close and remain there voluntarily. No one tests the latch. No one touches the route diagram.',
+    'The assistants at home stay with Marina, Albedo, and Durin. The returning fugitives settle close and remain there voluntarily. No one tests the latch. No one touches the route diagram.',
     ['Durin','“They’re not going anywhere. Neither are we.”'],
     'Feofan is not left alone. When he comes round, the first things he finds are Marina’s familiar voice, a steady hand, and twenty little shapes watching him.',
     'Later, Zandik returns. His migraine has improved. He stops in the doorway at the sight of his husband lying so still, and the work in his hands is forgotten.',
@@ -53,12 +53,12 @@ export const ENDINGS = {
   home:{label:'BAD ENDING',title:'You had one job',mark:'I',color:'home',breaks:[6,13],chapters:['An unfinished search.','He counts.','The door closes.'],scene:'Northland Bank · Penthouse',tagline:['Zandik is feeling better.','Unfortunately, so is his ability to judge you.'],lines:s=>[
     'Feofan returns to the penthouse. Marina looks past him into the hall. He closes the door before she has to ask a second question.',
     ['Marina','“How many are still out there?”'],
-    ['Feofan',`“${7-s.recovered}.”`],
+    ['Feofan',`“${(s.extraRevealed?8:7)-s.recovered}.”`],
     'The number lands with an unpleasant weight. Albedo checks the assistants already home. Durin draws a chair out for Feofan without pretending the search is finished.',
     ['Feofan','“Keep these here. Please.”'],
     'Marina nods. No one makes a joke while they wait.',
     'When Zandik comes home, his migraine has improved. He notices the arrangement at once: Feofan sitting forward, Marina by the door, too few blue tufts among the cushions.',
-    'He counts for himself. Then he sets down his work.',
+    s.extraRevealed?'He counts for himself. Then he sets down his work.':'He counts for himself. There is one fewer than Feofan expected. The assistant in the pale cat costume slipped out too. Zandik sets down his work; the search has grown once more.',
     ['Zandik','“Where are the others?”'],
     'Feofan gives him a precise account. The places searched. The assistants secured. The part he did not finish. Zandik lets him speak to the end.',
     ['Zandik','“I asked you to keep them at home. Now I have to go and find them myself.”'],
