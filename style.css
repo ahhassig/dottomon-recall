@@ -675,7 +675,7 @@ dialog h2{font-size:1.75rem}
 .puff--cat .arm{background:#a4d1da;width:27%;height:23%;border-radius:60%}
 .puff--cat .beak{display:none}
 .puff--cat .foot{background:#8cbece;border-radius:40%;clip-path:none;width:26%;height:15%}
-.prop--cat{position:absolute;inset:0;pointer-events:none}
+.prop--cat{position:absolute;inset:0;width:auto;height:auto;transform:none;box-shadow:none;pointer-events:none}
 .prop--cat:before,.prop--cat:after{content:'';position:absolute;top:-19%;width:30%;height:38%;background:linear-gradient(135deg,#dcebed 12%,#8cb9c5 20% 40%,#d8bfc5 43% 72%,#add7de 75%);border-radius:90% 10% 50% 25%;border:2px solid #afcfd5;z-index:-1}
 .prop--cat:before{left:-3%;transform:rotate(-33deg)}
 .prop--cat:after{right:-3%;transform:scaleX(-1) rotate(-33deg)}
