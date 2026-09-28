@@ -690,3 +690,24 @@ dialog h2{font-size:1.75rem}
 @media(prefers-reduced-motion:no-preference){.title-visual .tuft{animation:tuft-sway 4s ease-in-out 2}.puff--cat{animation-duration:4.5s}@keyframes tuft-sway{50%{rotate:-7deg}}}
 .tableau--rescue .puffs--group{grid-template-columns:repeat(8,1fr);width:464px!important}
 @media(max-width:600px){.ending-tableau .puffs--group{transform:translateX(-50%) scale(.4)}.tableau--rescue .puffs--group{transform:translateX(-50%) scale(.52)}}
+
+/* v0.5: clearer collection reading and richer original scene illustrations. */
+.contact-name{font:11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#c7b995;border-bottom:1px solid #8da9ba33;padding-bottom:12px}
+.collection-intro{color:var(--muted);line-height:1.7}.collection-count{font:12px var(--sans)!important;color:#bcd8dd;margin:12px 0!important}
+.gallery-card .text-button{display:block;margin:12px auto 0;min-height:44px}.gallery-card p{overflow-wrap:anywhere}
+.clue-review{justify-self:end;min-height:44px;margin:-7px 0 8px;font-size:13px}
+.archive-prose h3{font:normal 28px/1.25 var(--serif);color:var(--ink);margin:0 0 24px}
+.archive-navigation{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:28px;border-top:1px solid var(--line);padding-top:20px}
+.archive-navigation .button{flex:1}.archive-navigation .text-button{min-height:44px}
+.archive-report{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-block:1px solid var(--line);padding:20px 0;margin:24px 0}
+.archive-report dt{font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}.archive-report dd{margin:6px 0 0;font:24px var(--serif)}
+.archive-coda{border-left:2px solid #b6cad06b;padding-left:18px}.archive-coda p{font-family:var(--serif);font-style:italic}
+.scene-art>.environment-art{opacity:.92}.title-visual>.environment-art{opacity:.78}.ending-tableau>.environment-art{opacity:.72}
+.scene-art--archives{background:linear-gradient(130deg,#34404a,#111f2e)}
+.scene-art--courier,.scene-art--promenade{background:linear-gradient(150deg,#233d54,#122539)}
+.scene-art--operations,.scene-art--guardroom{background:linear-gradient(135deg,#344052,#112536)}
+.scene-art--fountain{background:linear-gradient(135deg,#36536a,#102b3b)}
+.scene-art--depot{background:linear-gradient(135deg,#37424a,#162636)}
+.scene-art--service{background:#122b3c}
+.ending-tableau .puffs--group{row-gap:23px}.tableau--good{box-shadow:inset 0 0 90px #c2a16a18}.tableau--secret{box-shadow:inset 0 0 90px #b19abb18}
+@media(max-width:650px){.archive-prose h3{font-size:24px}.archive-navigation{gap:6px 12px}.archive-navigation>.button{width:100%;flex-basis:100%}.archive-report{gap:14px}.clue-review{padding-block:9px}}

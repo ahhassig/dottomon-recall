@@ -1,6 +1,6 @@
-import {LOCATIONS,ALL_DOTTOMONS,COSTS,MISSION_SECONDS,SAFE_CHANCE} from './data/locations.js?v=0.4';
-import {assignLocations,POOLS,assignedAt,remainingAt,remainingPalace,cityComplete,cityReady,missionTotal} from './data/placements.js?v=0.4';
-import {chooseHint} from './data/hints.js?v=0.4';
+import {LOCATIONS,ALL_DOTTOMONS,COSTS,MISSION_SECONDS,SAFE_CHANCE} from './data/locations.js?v=0.5';
+import {assignLocations,POOLS,assignedAt,remainingAt,remainingPalace,cityComplete,cityReady,missionTotal} from './data/placements.js?v=0.5';
+import {chooseHint} from './data/hints.js?v=0.5';
 export {remainingAt,remainingPalace,cityComplete,cityReady,missionTotal};
 export function initialState() {
   return {phase:'title',intro:0,region:'city',location:'plaza',timeRemaining:MISSION_SECONDS,stress:0,
