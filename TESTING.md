@@ -22,7 +22,20 @@ Perfect Safe captures on a known direct route with fountain Dottoling finish at 
 
 Six new tests cover every replay variant without RNG draws or state mutation, pressure-note precedence, saved report reload/copy/reset, malformed report rejection and old discovery migration, early Return Home scene reconstruction, and session-only reports when storage is blocked. The existing UI route test now reads the Good archive through all 72 assignments, reads all four ending types after reload, verifies free clue review leaves the run unchanged, and tests Skip Opening at 20:00. `engine.js` changes only import cache versions; mission transitions are unchanged.
 
-The three policy probes above were rerun on v0.5 and produced identical outcomes, action counts and remaining times to v0.4. No balance adjustment was made. Browser QA for the new reader/scenery follows the feature-branch regression gate on Pages; the prior v0.4 live checks are retained below.
+The three policy probes above were rerun on v0.5 and produced identical outcomes, action counts and remaining times to v0.4. No balance adjustment was made.
+
+## v0.5 live browser verification
+
+Verified the deployed v0.5 build on September 29, 2026, after PR #6 merged and Pages workflow #9 completed successfully. All 54 tests were rerun and passed.
+
+- Completed a normal, unmodified-randomness run: Good Ending, 8/8 recovered, 00:20 remaining, 5 cigarettes, 2 hints. Read all three chapters and the report.
+- Exercised Safe failure/success, shortened retry prose, stress-sensitive writing, Risky capture, automatic date partner recovery, smoking, promenade chemist, courier Dottoling, recount, Palace scatter, and Palace searches.
+- Called Marina and Albedo, then reviewed Marina's earlier clue. Its original text and speaker returned; the clock remained 19:20 before and after review.
+- Read all three saved Good Ending scenes, navigated backward, and checked the exact saved report and new coda. Undiscovered endings stayed locked. Reload preserved the entry. Skip Opening started at 20:00 and 0/7. Escape closed the reader.
+- At 320px and 390px, checked title, map, encounters, call dialog, ending, and archive. Document/reader scroll widths equaled their client widths. The narrow reader scrolls vertically within its viewport. Maps also fit at 768px and 1280px; measured map buttons were at least 44px in both dimensions.
+- Inspected original city scenery and Dottoling's visible costume/ears. The main public title also loads at desktop width with the v0.5 label. Captured logs contained browser-extension metadata errors, not game-origin errors.
+
+All four saved readers, legacy discovery migration, blocked storage, and confirmed progress reset remain covered by automated tests. This live pass did not rediscover every ending or emulate physical Safari. The prior complete v0.4 live ending checks are retained below.
 
 ## v0.4 live browser baseline
 
