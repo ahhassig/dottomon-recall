@@ -10,7 +10,7 @@ The UI integration test drives the real event handler and templates through all 
 
 The feature branch passes 60 tests. Six new tests cover bounded opening navigation, all 15 nonempty Palace-only breach subsets, specialist/lab adjacency and no-entry behavior, reachable flavor variations, public naming and achievement preservation, and private ending chapters. The real UI handler test also exercises Back/Next round trips, result rereading, free lab observation, and free reactions across all 72 assignments. The achievement boundary test now checks 04:59 versus 05:00. Existing saved reports contain identity IDs and numbers, so the hint caller rename does not invalidate collections.
 
-All 3,000 seeded policy runs match the previous release exactly. The five-minute achievement threshold is the only balance change. Browser layout and live-interaction verification follow the regression gate on GitHub Pages because this environment blocks localhost previews.
+All 3,000 seeded policy runs match the previous release exactly. The five-minute achievement threshold is the only balance change. PR #7 merged as a9b9eb8 and Pages workflow #11 deployed successfully on September 30, 2026. The uploaded tree matched the tested local tree. A brief live check on the fresh `?v=0.51` public page confirmed the new branding, 05:00 achievement copy, opening Back/Next round trip, and keyboard-triggered Dottomon reaction with no clock change. An older responsive-harness tab still served cached v0.5 and was not counted as v0.51 layout evidence. At the owner’s request, extended live runs and the full new mobile-layout matrix were deferred to conserve credits; existing engine/UI regression coverage remains passing.
 
 ## Reproducible balance probes
 
