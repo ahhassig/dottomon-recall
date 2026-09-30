@@ -1,4 +1,4 @@
-import {ALL_DOTTOMONS,PALACE_DOTTOMONS} from './data/locations.js?v=0.5';
+import {ALL_DOTTOMONS,PALACE_DOTTOMONS} from './data/locations.js?v=0.51';
 // Persistent collection state is separate from resettable mission state. v0.3 endings migrate in place.
 export const REPORT_KEY='dottomon-recall.reports.v1';
 export const GALLERY_KEY='dottomon-recall.endings.v1';
@@ -7,7 +7,7 @@ export const ENDING_IDS=Object.freeze(['good','secret','home','breach']);
 export const ACHIEVEMENTS=Object.freeze({
  full_recall:{title:'Full Recall',description:'Discover all four endings.'},
  cold_plunge:{title:'Cold Plunge',description:'Fail a Safe capture at the fountain and land in the water without Dottoling.'},
- ahead:{title:'Ahead of Schedule',description:'Recover every mission assistant with at least 10:00 remaining.'},
+ ahead:{title:'Ahead of Schedule',description:'Recover every mission assistant with at least 05:00 remaining.'},
  no_help:{title:'No Outside Help',description:'Recover every mission assistant without using a hint.'}
 });
 // Store only known identifiers and bounded numbers, never rendered HTML or dialogue.
@@ -43,8 +43,8 @@ export function createProgress(storage) {
       if(discovered.length===4)unlock('full_recall');
       if(s.coldPlunge)unlock('cold_plunge');
       if(s.extraRevealed&&s.recovered===8){
-        if(s.timeRemaining>=600)unlock('ahead');
-        if(!['marina','albedo','durin'].some(person=>s[person+'HintUsed']))unlock('no_help');
+        if(s.timeRemaining>=300)unlock('ahead');
+        if(!['lumine','albedo','durin'].some(person=>s[person+'HintUsed']))unlock('no_help');
       }
       const added=earned.filter(id=>!before.includes(id));if(added.length||ENDING_IDS.includes(s.ending))save();return added;
     },

@@ -1,10 +1,16 @@
-# Version 0.5 verification
+# Version 0.51 verification
 
-`npm test`: **54 passing tests**, zero failures.
+`npm test`: **60 passing tests**, zero failures.
 
 Coverage includes every valid placement (72 assignments), every authored identity/location pairing (14), intact date pairing, hidden map occupancy, the recount and 7→8 objective, both Dottoling locations, stale courier search invalidation, city/Palace gating, Safe probability boundary, Risky guarantee, stress/smoking, sixth-critical Secret boundaries, all four endings and their precedence, hint costs/targets, Return Home, timeouts, replay, v0.3 archive migration, all four achievements, confirmed progress reset, and corrupt/blocked storage.
 
 The UI integration test drives the real event handler and templates through all 72 assignments and all endings using a minimal DOM stand-in. It does not test browser layout. 300 adversarial runs also check state invariants and termination.
+
+## v0.51 verification
+
+The feature branch passes 60 tests. Six new tests cover bounded opening navigation, all 15 nonempty Palace-only breach subsets, specialist/lab adjacency and no-entry behavior, reachable flavor variations, public naming and achievement preservation, and private ending chapters. The real UI handler test also exercises Back/Next round trips, result rereading, free lab observation, and free reactions across all 72 assignments. The achievement boundary test now checks 04:59 versus 05:00. Existing saved reports contain identity IDs and numbers, so the hint caller rename does not invalidate collections.
+
+All 3,000 seeded policy runs match the previous release exactly. The five-minute achievement threshold is the only balance change. Browser layout and live-interaction verification follow the regression gate on GitHub Pages because this environment blocks localhost previews.
 
 ## Reproducible balance probes
 
