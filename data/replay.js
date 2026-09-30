@@ -1,3 +1,4 @@
+import {EXTRAS} from './personality.js?v=0.51';
 // Presentation only: stable prose choices never draw from capture/placement randomness.
 const beats={
  'tea-one:pastry':['The guest with the teacup has turned the handle away from the aisle. Even the escape has table manners.','The first guest accepts the pastry box on the condition, communicated with one firm tap, that it stays level. Feofan agrees. He has negotiated less reasonable terms.','The tea is safely out of reach. Both guests remain at their table, regarding him as a disappointing interruption.'],
@@ -16,9 +17,9 @@ const beats={
  'dottoling:courier':['The costume’s ears have collected two different shades of slush. Dottoling examines one sleeve with undiminished interest.','The parcel cloth becomes a dry bundle with one red eye above the fold. Feofan thanks the clerk. Dottoling points back at the puddle; the request is declined.','The cart is stationary. Dottoling waits by the far wheel while Feofan blocks the narrow gap again.']
 };
 export const REPLAY_BEATS=beats;
-export function proseChoice(s,key='') {
+export function proseChoice(s,key='',count=2) {
  const text=Object.entries(s.placements||{}).sort().map(([id,loc])=>id+loc).join('')+key;
- return [...text].reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,0)%2;
+ return [...text].reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,0)%count;
 }
 export function pressureLine(s) {
  if(s.timeRemaining<=180)return ['Feofan','“One thing at a time. You first. Then the next door.”'];
@@ -30,8 +31,18 @@ export function replayEncounter(s,target,location,base) {
  const extra=beats[target+':'+location];if(!extra)return base;
  const tries=s.attempts[location]||0,condition=pressureLine(s);
  const story={...base,lines:tries?[extra[2],['Feofan',tries>1?'“Same problem. Different angle.”':'“All right. Once more.”']]:proseChoice(s,target)?[...base.lines.slice(0,1),extra[0],...base.lines.slice(1)]:[...base.lines]};
+ const more=EXTRAS[target+':'+location];
+ if(more){
+  if(!tries&&proseChoice(s,target+':opening'))story.lines[0]=more[0];
+  const choice=proseChoice(s,target+':success',3);
+  story.success=[base.success,extra[1],more[1]][choice];
+  story.risky=proseChoice(s,target+':risky')?base.risky:more[2];
+  const failures=[...base.failures,more[3]],offset=proseChoice(s,target+':failure',failures.length);
+  story.failures=[...failures.slice(offset),...failures.slice(0,offset)];
+  story.return=proseChoice(s,target+':return')?base.return:more[4];
+ }
  if(condition)story.lines.push(condition);
- if(proseChoice(s,target+':success')||(s.attempts[location]||0)>1)story.success=extra[1];
+ if(!more&&proseChoice(s,target+':success'))story.success=extra[1];
  return story;
 }
 export function fieldNote(s) {

@@ -711,3 +711,31 @@ dialog h2{font-size:1.75rem}
 .scene-art--service{background:#122b3c}
 .ending-tableau .puffs--group{row-gap:23px}.tableau--good{box-shadow:inset 0 0 90px #c2a16a18}.tableau--secret{box-shadow:inset 0 0 90px #b19abb18}
 @media(max-width:650px){.archive-prose h3{font-size:24px}.archive-navigation{gap:6px 12px}.archive-navigation>.button{width:100%;flex-basis:100%}.archive-report{gap:14px}.clue-review{padding-block:9px}}
+
+/* v0.51: readable routes, free observation and keyboard-accessible reactions. */
+.dialogue-navigation{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:24px}
+.dialogue-navigation .text-button{min-height:44px;padding:10px 4px}
+.node--laboratory{border-color:#b6d9e6;background:linear-gradient(145deg,#2e4657,#142637)}
+.node--laboratory .node-state{color:#dce8e8}
+.node-map--palace .hub-node{left:50%;top:49%;width:80px;height:90px}
+.node-map--palace .hub-node>span{width:36px;height:36px;margin:0 0 8px}
+.node-map--palace .hub-node>b{font-size:16px}
+.node-map--palace .hub-node>small{display:none}
+.node-map--palace .map-routes{opacity:.8}
+button.puff{padding:0;cursor:pointer;color:inherit;-webkit-tap-highlight-color:transparent}
+button.puff:focus-visible{outline:3px solid var(--ice);outline-offset:12px}
+button.puff>*{pointer-events:none}
+.reaction-caption{font-size:13px;color:var(--ice);padding:12px 14px;border-left:2px solid var(--ice);background:#a8d5e508;min-height:3.5em}
+.result-card>.text-button{display:block;margin:10px auto;min-height:44px}
+@media(prefers-reduced-motion:no-preference){
+ button.puff[data-reaction=chirp] .tuft{animation:react-tuft .5s ease-out}
+ button.puff[data-reaction=tilt] .arm{animation:react-arm .5s ease-out}
+ @keyframes react-tuft{50%{rotate:20deg;translate:0 -4px}}
+ @keyframes react-arm{50%{rotate:-30deg;translate:3px -3px}}
+}
+@media(max-width:600px){
+ .node-map--palace{height:960px}
+ .node-map--palace .hub-node{top:47%}
+ .dialogue-navigation .button{flex:1;min-width:180px}
+ .node--laboratory{width:180px;max-width:70%}
+}

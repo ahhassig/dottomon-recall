@@ -1,12 +1,12 @@
-import {LOCATIONS,ALL_DOTTOMONS,COSTS,MISSION_SECONDS,SAFE_CHANCE} from './data/locations.js?v=0.5';
-import {assignLocations,POOLS,assignedAt,remainingAt,remainingPalace,cityComplete,cityReady,missionTotal} from './data/placements.js?v=0.5';
-import {chooseHint} from './data/hints.js?v=0.5';
+import {LOCATIONS,ALL_DOTTOMONS,COSTS,MISSION_SECONDS,SAFE_CHANCE} from './data/locations.js?v=0.51';
+import {assignLocations,POOLS,assignedAt,remainingAt,remainingPalace,cityComplete,cityReady,missionTotal} from './data/placements.js?v=0.51';
+import {chooseHint} from './data/hints.js?v=0.51';
 export {remainingAt,remainingPalace,cityComplete,cityReady,missionTotal};
 export function initialState() {
   return {phase:'title',intro:0,region:'city',location:'plaza',timeRemaining:MISSION_SECONDS,stress:0,
     cigarettes:0,criticalEpisodes:0,recovered:0,capturedDottomons:[],palaceEntered:false,
     placements:{},extraRevealed:false,recountPending:false,coldPlunge:false,
-    locationsVisited:{},marinaHintUsed:false,albedoHintUsed:false,durinHintUsed:false,
+    locationsVisited:{},lumineHintUsed:false,albedoHintUsed:false,durinHintUsed:false,
     hint:null,hintDetails:{},attempts:{},result:null,ending:null,endingSummary:null};
 }
 export function locationStatus(s,id) {
@@ -20,7 +20,7 @@ function finish(s,id) {
   s.ending=id;s.phase='ending';s.hint=null;
   s.endingSummary={timeRemaining:s.timeRemaining,recovered:s.recovered,total:missionTotal(s),
     cigarettes:s.cigarettes,criticalEpisodes:s.criticalEpisodes,
-    hintsUsed:['marina','albedo','durin'].filter(person=>s[person+'HintUsed']).length,uncapturedPalace:remainingPalace(s)};
+    hintsUsed:['lumine','albedo','durin'].filter(person=>s[person+'HintUsed']).length,uncapturedPalace:remainingPalace(s)};
 }
 // Sixth critical episode > final recovery > timeout. Five cigarettes alone do not trigger Secret.
 function checkEnding(s,secret=false) {
@@ -51,12 +51,13 @@ export function transition(previous,action,random=Math.random) {
   const s=structuredClone(previous);
   if(action.type==='BEGIN'&&s.phase==='title'){s.placements=assignLocations(random);s.phase='opening';return s;}
   if(action.type==='INTRO_NEXT'&&s.phase==='opening'){if(s.intro<2)s.intro++;else s.phase='map';return s;}
+  if(action.type==='INTRO_PREV'&&s.phase==='opening'){if(s.intro>0)s.intro--;return s;}
   if(action.type==='RECOUNT_NEXT'&&s.phase==='recount'){s.phase='map';return s;}
   if(!isPlaying(s)) return previous;
   if(action.type==='RETURN_HOME'){checkEnding(s);if(!s.ending)finish(s,'home');return s;}
   if(action.type==='CALL') {
     const key=action.person+'HintUsed';
-    if(!['marina','albedo','durin'].includes(action.person)||s[key])return previous;
+    if(!['lumine','albedo','durin'].includes(action.person)||s[key])return previous;
     s.hintDetails[action.person]=chooseHint(action.person,s);s[key]=true;s.hint=action.person;
     spend(s,COSTS.call);checkEnding(s);return s;
   }
