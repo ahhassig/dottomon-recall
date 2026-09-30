@@ -14,11 +14,11 @@ export const OPENING = [
     ['Feofan','“There were twenty of you when we left.”'],
     'Thirteen red eyes look back. A Dottomon smooths its tuft with a retractable arm. Another slowly places a paperweight over something that resembles a route diagram.',
     'Feofan picks up the receiver. This is a containment problem, a search problem, and an extremely short deadline. It requires help, not another count.',
-    ['Feofan','“Mari. I need you at the penthouse. Bring whoever’s with you.”']
+    ['Feofan','“Lumi. I need you at the penthouse. Bring whoever’s with you.”']
   ]},
   {eyebrow:'Emergency babysitting · Established',title:'Seven missing. Twenty minutes.',scene:'penthouse',lines:[
-    'Marina arrives with Albedo and Durin, the two people she happened to be with. She takes in Feofan’s expression, the thirteen puffballs, and the paperweight.',
-    ['Marina','“Okay. We’ve got these thirteen. You get the escape committee.”'],
+    'Lumine arrives with Albedo and Durin, the two people she happened to be with. She takes in Feofan’s expression, the thirteen puffballs, and the paperweight.',
+    ['Lumine','“Okay. We’ve got these thirteen. You get the escape committee.”'],
     'Albedo moves the paperweight. They study the diagram, then quietly relocate the nearest chair away from the window latch.',
     ['Albedo','“I suggest we consider the furniture part of their escape infrastructure.”'],
     'Durin sits where he can see both doors. One of the assistants offers him an elaborate sequence of chirps.',
@@ -83,10 +83,10 @@ export const ENCOUNTERS = {
   ]},
   archives:{title:'A difference of research priorities.',lines:[
     'A rolling ladder stands beside an open cabinet. On the table below it, several restricted reports have been arranged by date. The annotations in the margins are not new. The tiny paperweights holding them open are.',
-    'The fugitive is comparing a reaction diagram with an older set of measurements. It turns a page, makes a dissatisfied huff, and taps one particular figure.',
+    'The fugitive is comparing two contradictory reports on acoustic resonance. Beside them lies its own plan: reproduce the experiment with the laboratory’s largest resonator. It has underlined “maximum amplitude.”',
     ['Feofan','“I’m sure the discrepancy is fascinating. We’re leaving.”'],
     'The Dottomon swivels a report toward him. It points at the figure again. Then it points, with considerable emphasis, toward the research wing.',
-    'It has found something it considers relevant. That doesn’t make entering Zandik’s laboratory acceptable. Feofan photographs the page for later and closes the nearest route behind the cabinet.',
+    'This is its own experiment, not Zandik’s. It wants the laboratory’s equipment and has apparently decided that its current occupant can work around the noise. Feofan photographs the page for later and closes the nearest route behind the cabinet.',
     ['Feofan','“Preserved for discussion. After his work is finished.”'],
     'The creature looks between him and the remaining open files. It has not accepted the proposed timetable.'
   ],success:'The papers are left in their correct order. The Dottomon goes home still pointing at the saved photograph, but the argument can now continue somewhere Zandik isn’t working.',
@@ -98,10 +98,10 @@ export const ENCOUNTERS = {
   operations:{title:'The smallest person in charge.',lines:[
     'A dispatch clerk is holding two contradictory requisitions. Another is standing beside a communications terminal with the air of someone waiting for a superior to become less spherical.',
     'The Dottomon occupies the center of the desk. It taps one requisition, pushes the other aside, and produces a brisk series of chirps. Three deliveries have been reordered in the last minute.',
-    ['Dispatch clerk','“It keeps correcting the project schedule.”'],
-    ['Feofan','“Are the corrections accurate?”'],
-    ['Dispatch clerk','“That’s the difficult part, my lord.”'],
-    'Feofan reads both sheets. The assistant understands the project’s material requirements. It does not have authority to redirect an entire department toward Zandik’s door.',
+    ['Dispatch clerk','“It keeps adding a pressure demonstration to the project schedule.”'],
+    ['Feofan','“Has anyone authorized a pressure demonstration?”'],
+    ['Dispatch clerk','“It has filled in every field except that one, my lord.”'],
+    'Feofan reads both sheets. The assistant has requisitioned a pressure rig and three canisters for its own elaborate demonstration. The laboratory booking names Zandik as an involuntary audience. Feofan cancels it before the first trolley leaves.',
     ['Feofan','“Hold the original schedule. No new deliveries to the laboratory.”'],
     'The Dottomon places both arms on the requisition it prefers. Its huff suggests it intends to escalate the matter. Unfortunately for it, Feofan is the escalation.'
   ],success:'The dispatches are restored before anything reaches the research wing. Feofan sends the self-appointed coordinator home. The clerk very carefully refrains from asking whether it will be returning in an official capacity.',
@@ -115,7 +115,7 @@ export const ENCOUNTERS = {
     'Feofan hears a soft scrape overhead and moves to the next junction. The Dottomon drops out of a maintenance opening, sees him waiting, and freezes.',
     ['Feofan','“You’re not the first person to discover the service plan.”'],
     'It looks at the closed door behind him, then at the corridor to his left. He has already secured both routes toward the research areas. The remaining passage only leads back to this junction.',
-    'A long, offended squeak emerges from the puffball.',
+    'A rolled sketch falls from its fluff: a turbine, smoke tracers, and a full-speed airflow test inside Zandik’s laboratory. This is its own project. The presence of another researcher has not entered its calculations. A long, offended squeak emerges from the puffball.',
     ['Feofan','“Yes. An appalling misuse of local knowledge.”'],
     'It rocks once on its little body, weighing the options. Feofan lowers a hand. An invitation might work. Intercepting the next dash certainly will, though neither of them will enjoy the scramble.'
   ],success:'Feofan catches the runner before it reaches the open vent. The screws and cover are returned to maintenance; the indignant architect of the shortcut is returned to the penthouse.',
@@ -125,7 +125,7 @@ export const ENCOUNTERS = {
     'It waits until he is close, then takes the narrow space beneath the handrail. He reaches the next junction first. They stare at each other, right back where they started. Feofan straightens from the low railing, fighting the urge to rush his next attempt.'
   ]},
   reagents:{title:'One door too close.',lines:[
-    'This assistant did not flee from the lobby. It was already here, near the research wing, working through the labels on a locked specialist cabinet.',
+    'This assistant did not flee from the lobby. It was already here, near the research wing, working through the labels on a locked specialist cabinet. One short connecting passage leads directly to Zandik’s laboratory.',
     'A transport tray holds a mounting bracket and a folded material specification. The Dottomon is reaching for a sealed ampoule of cryostable catalyst. Every item has been chosen for Zandik’s project.',
     'Its purpose is entirely sincere. Its next intended destination is entirely unacceptable.',
     ['Feofan','“He asked for quiet. That is the contribution we’re making today.”'],
@@ -173,5 +173,5 @@ export const SCATTER = [
   'Three tufts rise.',
   'They scatter.',
   'One slips behind a passing clerk. Another vanishes around a pillar. The third is simply no longer where it was. Feofan memorizes the doors, alerts the lobby staff, and sets about cutting off access to the research wing.',
-  'Three fugitives have disappeared into the Palace. A fourth was already somewhere inside. Their destinations remain unknown.'
+  'Three fugitives have disappeared into the Palace to prepare their own experiments. A fourth was already somewhere inside, gathering something for Zandik’s work. All four want access to his laboratory. None has permission. Their hiding places remain unknown.'
 ];
