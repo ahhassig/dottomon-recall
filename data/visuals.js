@@ -32,5 +32,5 @@ export function scenery(scene) {
  return `<svg class="environment-art" data-scene="${Object.hasOwn(scenes,scene)?scene:'lobby'}" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${(scenes[scene]||scenes.lobby)()}<path d="M15 385V15h570v370Z" stroke="#b0c5d5" stroke-opacity=".18" fill="none"/></svg>`;
 }
 export const FUGITIVE_CUES={
- dottoling:{cue:'cat',label:'The unexpected follower'},'tea-one':{cue:'tea',label:'Tea enthusiast'},'tea-two':{cue:'cake',label:'The other half of the date'},chemist:{cue:'vial',label:'Field researcher'},archivist:{cue:'paper',label:'Archivist'},coordinator:{cue:'seal',label:'Self-appointed coordinator'},runner:{cue:'runner',label:'Shortcut specialist'},specialist:{cue:'vial',label:'Reagent specialist'}
+ dottoling:{cue:'cat',label:'Dottoling Dottomon'},'tea-one':{cue:'tea',label:'Tea enthusiast'},'tea-two':{cue:'cake',label:'The other half of the date'},chemist:{cue:'vial',label:'Field researcher'},archivist:{cue:'paper',label:'Archivist'},coordinator:{cue:'seal',label:'Self-appointed coordinator'},runner:{cue:'runner',label:'Shortcut specialist'},specialist:{cue:'vial',label:'Reagent specialist'}
 };

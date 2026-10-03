@@ -85,19 +85,19 @@ export const EXTRAS={
   'The specialist slips through the tray handle, pulling the packing felt after it. Feofan steadies the sliding instrument with both hands while listening for any sound from the neighboring lab. Nothing crashes, but the assistant has retreated beyond his reach.',
   'The reserved bracket stays in its tray. Its proposed delivery time is now emphatically “afterward.”'
  ],
- 'dottoling:plaza':[
-  'One pale cat ear appears above the fountain rim. Then a second. Then the entire costume rolls past, escorting a leaf through the warm spring water.',
-  'Feofan holds the towel flat like a landing stage. Dottoling paddles onto it, gives the leaf a final nudge, and submits to being bundled up.',
-  'Feofan steps deliberately into the fountain and gathers Dottoling safely into the towel. A child points. Her father abruptly discovers something fascinating on the opposite roof. Water pours from Feofan’s coat. “The fountain is functioning,” he informs nobody in particular.',
-  'Dottoling rolls just beyond his reach. Feofan slips on the wet stone and lands in the shallow fountain, still without the assistant. A pedestrian offers him a hand while Dottoling paddles to the opposite rim. He accepts the help, checks his footing, and has to begin again.',
-  'A little wet sleeve waves toward the fountain. “You are not booking a return visit.”'
- ],
- 'dottoling:courier':[
-  'A courier cart has left a particularly inviting track of slush. Dottoling is inspecting it from inside a cat costume that was pale blue this morning.',
-  'Feofan makes a clean bundle of the parcel cloth. Dottoling tests the dry edge, gives the puddle one wistful look, and climbs into it.',
-  'Feofan kneels in the slush and collects Dottoling before it rolls beneath the cart. The clerk looks at the dripping bundle. “Fragile?” “Opinionated.” She offers a parcel tag anyway. He discovers it stuck to his wet sleeve three steps later.',
-  'Dottoling rolls behind the cart wheel with the cloth trailing after it. Feofan braces the cart before a porter can move it and steps directly into the puddle. The wheel is safe; his socks are not. He has to reposition before trying again.',
-  'The clerk recommends waterproof wrapping. Feofan declines to ask whether she means him or Dottoling.'
+'dottoling:plaza':[
+  'One pale cat ear appears above the fountain rim, then the other. The Dottoling Dottomon rolls past with a leaf balanced on its costume.',
+  'Feofan holds the towel open. The Dottoling Dottomon paddles onto it, nudges the leaf once more, and lets him bundle it up.',
+  'Feofan steps into the fountain and catches the Dottoling Dottomon. A child points; her father looks away. Water runs out of Feofan’s coat. “Yes, it is cold,” he says, though no one asked.',
+  'The Dottoling Dottomon rolls just beyond his reach. Feofan slips on the wet stone and lands in the shallow fountain. A pedestrian offers him a hand while the Dottoling paddles to the other side. He takes the hand, checks his footing, and tries again.',
+  'A wet sleeve waves from the fountain. “No. You’re not booking a return visit.”'
+],
+'dottoling:courier':[
+  'The Dottoling Dottomon has found a puddle beside the courier cart. Its cat costume was pale blue before it started rolling around in the slush.',
+  'Feofan spreads out the parcel cloth. The Dottoling Dottomon looks from the dry cloth to the puddle, then climbs onto the cloth.',
+  'Feofan kneels in the slush and catches the Dottoling Dottomon before it rolls under the cart. The clerk looks at the dripping bundle. “Fragile?” “Opinionated.” She gives him a parcel tag. He finds it stuck to his sleeve a few steps later.',
+  'The Dottoling Dottomon rolls behind the cart wheel with the cloth trailing after it. Feofan stops the cart before a porter moves it, then steps into the puddle to block the next gap. His socks are soaked; he needs to get back on his feet before trying again.',
+  'The clerk suggests waterproof wrapping. Feofan looks at his soaked trousers. “I’ll keep that in mind.”'
  ]
 };
 export const REACTIONS={
@@ -108,5 +108,5 @@ export const REACTIONS={
  coordinator:['It offers Feofan the pen. A countersignature would solve several of its problems.','A brisk double chirp. The demonstration schedule is pushed forward one highly deliberate inch.'],
  runner:['Its untidy tuft flops sideways. A small arm tries to smooth it while the other keeps hold of the duct sketch.','It points at an arrow on the plan, then at the ceiling. Feofan shakes his head.'],
  specialist:['It looks toward the laboratory, then back at Feofan. The soft questioning trill is entirely earnest.','The specification is held up in both arms. Feofan nods. “I know. We’ll keep it for him.”'],
- dottoling:['The costume’s damp ears wobble. Dottoling examines one sleeve, then proudly presents it.','One red eye blinks slowly. A paw-shaped sleeve points back toward the water. Request denied.']
+ dottoling:['The damp cat ears flop over the Dottoling Dottomon’s eye. It pushes one back and shows Feofan the muddy sleeve.','The Dottoling Dottomon blinks at him, then points one paw-shaped sleeve toward the water. It is not ready to leave.']
 };
