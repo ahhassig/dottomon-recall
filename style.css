@@ -67,7 +67,6 @@ svg{display:inline-block;vertical-align:middle}
 .count-ticket .ticket-warning{color:var(--gold);letter-spacing:0;font-family:var(--serif);font-style:italic;font-size:14px}
 .puffs{width:100%;height:230px;position:relative;display:flex;align-items:center;justify-content:center;gap:8px;z-index:1}
 .puff{position:relative;width:142px;height:133px;flex:none;border-radius:49% 52% 44% 48%;background:radial-gradient(ellipse at 35% 25%,#25303b 0,#0b111a 45%,#03060a 75%);box-shadow:0 18px 25px #0006,inset 0 1px 5px #8da8bb4a;border:1px solid #738ba22b;transform:rotate(-8deg)}
-.puff:before{content:'';position:absolute;inset:8px -5px;background:inherit;z-index:-1;border-radius:47%;transform:rotate(30deg)}
 .puff .tuft{position:absolute;width:46px;height:48px;left:38%;top:-33px;background:linear-gradient(135deg,#abdaec,#6e9ebc 70%);clip-path:polygon(15% 95%,0 20%,25% 42%,43% 0,57% 35%,87% 9%,78% 54%,100% 37%,85% 100%);transform:rotate(6deg);filter:drop-shadow(0 0 6px #8fbcdf)}
 .puff .eye{width:23px;height:27px;border-radius:55%;position:absolute;left:44%;top:42%;background:radial-gradient(circle at 34% 25%,#ffccd0 0 9%,#ec637a 15%,#941c37 60%,#390d20);box-shadow:0 0 15px #b4243f40}
 .puff .eye:after{content:'';position:absolute;width:4px;height:16px;border-radius:40%;left:10px;top:6px;background:#210f1b}
@@ -669,7 +668,6 @@ dialog h2{font-size:1.75rem}
 .puff .eye{width:28%;height:31%;left:36%;top:37%;background:radial-gradient(circle at 48% 45%,#feefd9 0 45%,#ef6580 48% 62%,#991d38 68%);box-shadow:0 0 13px #cb254a32}
 .puff .eye:after{width:12%;height:17%;left:44%;top:38%;background:#b47747;border:1px solid #d5a262;border-radius:50%}
 .puff--cat{border-radius:47% 48% 40% 42%;background:radial-gradient(ellipse at 50% 40%,#101820 0 32%,#b8dfe3 34% 51%,#8ebbc9 75%);border:2px solid #d1e8e8;box-shadow:0 18px 25px #0006,inset 0 0 10px #ecffff66}
-.puff--cat:before{background:inherit;border-radius:45%;inset:4px -4px}
 .puff--cat .tuft{background:#c6e5e9;z-index:2}
 .puff--cat .tuft:after{background:#d1e9eb}
 .puff--cat .arm{background:#a4d1da;width:27%;height:23%;border-radius:60%}
@@ -712,7 +710,7 @@ dialog h2{font-size:1.75rem}
 .ending-tableau .puffs--group{row-gap:23px}.tableau--good{box-shadow:inset 0 0 90px #c2a16a18}.tableau--secret{box-shadow:inset 0 0 90px #b19abb18}
 @media(max-width:650px){.archive-prose h3{font-size:24px}.archive-navigation{gap:6px 12px}.archive-navigation>.button{width:100%;flex-basis:100%}.archive-report{gap:14px}.clue-review{padding-block:9px}}
 
-/* v0.51: readable routes, free observation and keyboard-accessible reactions. */
+/* v0.52: clean creature silhouettes and refreshed character emblems. */
 .dialogue-navigation{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:24px}
 .dialogue-navigation .text-button{min-height:44px;padding:10px 4px}
 .node--laboratory{border-color:#b6d9e6;background:linear-gradient(145deg,#2e4657,#142637)}

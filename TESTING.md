@@ -1,16 +1,22 @@
-# Version 0.51 verification
+# Version 0.52 verification
 
-`npm test`: **60 passing tests**, zero failures.
+`npm test`: **65 passing tests**, zero failures.
 
 Coverage includes every valid placement (72 assignments), every authored identity/location pairing (14), intact date pairing, hidden map occupancy, the recount and 7→8 objective, both Dottoling locations, stale courier search invalidation, city/Palace gating, Safe probability boundary, Risky guarantee, stress/smoking, sixth-critical Secret boundaries, all four endings and their precedence, hint costs/targets, Return Home, timeouts, replay, v0.3 archive migration, all four achievements, confirmed progress reset, and corrupt/blocked storage.
 
 The UI integration test drives the real event handler and templates through all 72 assignments and all endings using a minimal DOM stand-in. It does not test browser layout. 300 adversarial runs also check state invariants and termination.
 
+## v0.52 verification
+
+The v0.52 branch passes all 65 automated tests. New checks cover the XX / twenty-assistant Good Ending count, Zandik’s Bad Ending 1 trip to the lab, Dottoling Dottomon naming, Feofan’s glasses-chain emblem, removal of the extra Dottomon body oval, and the ending reader’s revised copy. The full UI regression still traverses all 72 placements and all four ending routes.
+
+The v0.52 changes are prose and visual presentation only. Capture balance, action costs, stress, ending conditions, mission time, and random placements remain unchanged.
+
 ## v0.51 verification
 
-The feature branch passes 60 tests. Six new tests cover bounded opening navigation, all 15 nonempty Palace-only breach subsets, specialist/lab adjacency and no-entry behavior, reachable flavor variations, public naming and achievement preservation, and private ending chapters. The real UI handler test also exercises Back/Next round trips, result rereading, free lab observation, and free reactions across all 72 assignments. The achievement boundary test now checks 04:59 versus 05:00. Existing saved reports contain identity IDs and numbers, so the hint caller rename does not invalidate collections.
+The v0.51 feature branch passed 60 tests. Six tests covered bounded opening navigation, all 15 nonempty Palace-only breach subsets, specialist/lab adjacency and no-entry behavior, reachable flavor variations, public naming and achievement preservation, and private ending chapters. The real UI handler test also exercises Back/Next round trips, result rereading, free lab observation, and free reactions across all 72 assignments. The achievement boundary test now checks 04:59 versus 05:00. Existing saved reports contain identity IDs and numbers, so the hint caller rename does not invalidate collections.
 
-All 3,000 seeded policy runs match the previous release exactly. The five-minute achievement threshold is the only balance change. PR #7 merged as a9b9eb8 and Pages workflow #11 deployed successfully on September 30, 2026. The uploaded tree matched the tested local tree. A brief live check on the fresh `?v=0.51` public page confirmed the new branding, 05:00 achievement copy, opening Back/Next round trip, and keyboard-triggered Dottomon reaction with no clock change. An older responsive-harness tab still served cached v0.5 and was not counted as v0.51 layout evidence. At the owner’s request, extended live runs and the full new mobile-layout matrix were deferred to conserve credits; existing engine/UI regression coverage remains passing.
+All 3,000 seeded policy runs match the previous release exactly. The five-minute achievement threshold is the only balance change. Browser layout and live-interaction verification follow the regression gate on GitHub Pages because this environment blocks localhost previews.
 
 ## Reproducible balance probes
 
