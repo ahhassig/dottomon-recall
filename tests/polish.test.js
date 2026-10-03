@@ -19,8 +19,8 @@ test('Replay prose covers both placement pools, shortens retries, and never muta
  }} }finally{Math.random=old;}
 });
 test('Pressure prose has a finite precedence and does not reveal an unvisited room',()=>{
- const s={...initialState(),cigarettes:4,stress:50,timeRemaining:180};assert.match(pressureLine(s)[1],/One thing at a time/);
- s.timeRemaining=181;assert.match(pressureLine(s),/pauses/);s.cigarettes=0;assert.match(pressureLine(s),/voice level/);s.stress=0;assert.equal(pressureLine(s),null);
+ const s={...initialState(),cigarettes:4,stress:50,timeRemaining:180};assert.match(pressureLine(s)[1],/One door at a time/);
+ s.timeRemaining=181;assert.match(pressureLine(s),/checks the route/);s.cigarettes=0;assert.match(pressureLine(s),/lowers his voice/);s.stress=0;assert.equal(pressureLine(s),null);
  for(const placements of VALID_PLACEMENTS)assert.equal(fieldNote({...s,placements}),fieldNote(s));
 });
 test('An ending report survives reload and replay, retains its actual counts, and is returned as a copy',()=>{

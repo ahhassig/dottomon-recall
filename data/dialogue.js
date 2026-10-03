@@ -1,11 +1,11 @@
 export const OPENING = [
   {eyebrow:'Earlier · Zapolyarny Palace',title:'One very reasonable request.',scene:'laboratory',lines:[
-    'Zandik has dimmed every lamp except the one above his work. His migraine has made the remaining light difficult enough; twenty small assistants offering twenty simultaneous opinions would be considerably worse.',
-    ['Zandik','“The reaction needs another twenty minutes. Keep them at home until I’m finished. All twenty, Feofan.”'],
-    'Feofan moves the water within his husband’s reach and angles the lamp away from his eyes. The project can’t be abandoned halfway through. The audience can.',
+    'Zandik has turned the lamps low and stopped twice to press his fingers against his temple. Twenty assistants keep trying to help with the experiment. He needs the room quiet long enough to finish.',
+    ['Zandik','“I need another twenty minutes. Keep them at the penthouse until I’m done. All twenty, Feofan.”'],
+    'Feofan puts the water within reach and turns the lamp away from Zandik’s face. The experiment can’t stop halfway through. Feofan can keep the assistants away until Zandik finishes.',
     ['Feofan','“Finish your work. I’ll handle the assistants.”'],
-    'Twenty black puffballs regard the arrangement with one red eye apiece. Blue tufts incline. Somewhere among them, a small, deeply unconvinced trill sounds.',
-    'They aren’t pets. Each carries the preserved personality and consciousness patterns of one of Zandik’s former cooperative Segments. Every one of them has an opinion about being sent home.'
+    'Twenty black Dottomons look back at him, their blue tufts leaning at different angles. One lets out a low, unconvinced trill.',
+    'They are continuities of Zandik’s former cooperative Segments, each with its own memories and opinions. None of them is eager to be sent home.'
   ]},
   {eyebrow:'Northland Bank · The penthouse',title:'Thirteen.',scene:'penthouse',lines:[
     'The penthouse is directly beside the Palace. Feofan has brought the assistants upstairs, closed the door, and arranged them where he can count them.',
@@ -16,8 +16,8 @@ export const OPENING = [
     'Feofan picks up the receiver. This is a containment problem, a search problem, and an extremely short deadline. It requires help, not another count.',
     ['Feofan','“Lumi. I need you at the penthouse. Bring whoever’s with you.”']
   ]},
-  {eyebrow:'Emergency babysitting · Established',title:'Seven missing. Twenty minutes.',scene:'penthouse',lines:[
-    'Lumine arrives with Albedo and Durin, the two people she happened to be with. She takes in Feofan’s expression, the thirteen puffballs, and the paperweight.',
+  {eyebrow:'The plan · Northland Bank',title:'Seven missing. Twenty minutes.',scene:'penthouse',lines:[
+    'Lumine arrives with Albedo and Durin. She takes in Feofan’s expression, the thirteen Dottomons, and the paperweight.',
     ['Lumine','“Okay. We’ve got these thirteen. You get the escape committee.”'],
     'Albedo moves the paperweight. They study the diagram, then quietly relocate the nearest chair away from the window latch.',
     ['Albedo','“I suggest we consider the furniture part of their escape infrastructure.”'],
@@ -45,8 +45,8 @@ export const ENCOUNTERS = {
     'Feofan closes the gap before the Dottomon can reach the next chair. Creature and pastry box are safely sent home; the protesting trill draws every eye in the shop. He needs a moment outside.',
     'Feofan intercepts the second guest before it can request another pot. The date is over, both assistants are home, and nothing breakable has suffered. His composure has had a more expensive afternoon.'
   ],success:[
-    'The first Dottomon accepts the pastry box and goes home with all the dignity of a guest leaving at the end of a perfectly normal afternoon.',
-    'The second carefully straightens its napkin before cooperating. Both halves of the date are now safely at the penthouse. Feofan leaves a generous tip.'
+    'The first Dottomon takes the pastry box and lets Feofan carry it out.',
+    'Its partner folds the napkin, takes the last pastry, and climbs into his hand. Feofan leaves a generous tip.'
   ]},
   alchemy:{title:'Unauthorized acquisition.',lines:[
     'The shopkeeper stands behind the counter with a locked reagent case held firmly against her chest. A tiny black shape is halfway up the shelf behind her.',
@@ -63,7 +63,7 @@ export const ENCOUNTERS = {
     'A polite chirp draws his attention to the counter. The Dottomon is already under the opposite shelf. It hasn’t escaped the shop; Feofan must move a crate before it can squeeze into a shelf full of volatile stock.',
     'It reaches toward him, waits until he shifts his weight, and ducks behind a crate. Feofan adjusts his position. The exits remain covered. The creature reaches toward another bottle. Feofan catches the glass before it tips, pulse hammering.'
   ]},
-  market:{title:'An unproductive line of inquiry.',lines:[
+  market:{title:'The market is clear.',lines:[
     'Snow ticks against the glass roof of the arcade. Feofan makes a methodical circuit: stall ledges, warm awnings, stacked delivery crates. No red eye looks back.',
     ['Feofan','“Small. Black. One red eye. Blue tuft. Possibly carrying equipment it doesn’t own.”'],
     ['Vendor','“I’ve sold three scarves and argued with a customs officer. Nothing that interesting.”'],
@@ -72,7 +72,7 @@ export const ENCOUNTERS = {
     ['Feofan','“Me. Before it opens a line of credit.”'],
     'The market is clear. He notes the result and turns back toward the Plaza.'
   ]},
-  promenade:{title:'Only the snow has been here.',lines:[
+  promenade:{title:'No sign of them.',lines:[
     'The frozen canal catches the light in long blue seams. Feofan checks the benches, the underside of the bridge, and the sheltered recesses beside the lamps.',
     'A Fatui patrol pauses when he approaches. His description produces a brief, thoughtful silence.',
     ['Patrol officer','“One red eye, my lord?”'],
@@ -81,12 +81,12 @@ export const ENCOUNTERS = {
     ['Feofan','“A distinction I’m pleased you can make.”'],
     'The officer’s partner has walked the entire canal. Neither has seen anything matching the description. Feofan finishes checking the sheltered spots himself. No fugitive is here.'
   ]},
-  archives:{title:'A difference of research priorities.',lines:[
+  archives:{title:'The resonator can wait.',lines:[
     'A rolling ladder stands beside an open cabinet. On the table below it, several restricted reports have been arranged by date. The annotations in the margins are not new. The tiny paperweights holding them open are.',
     'The fugitive is comparing two contradictory reports on acoustic resonance. Beside them lies its own plan: reproduce the experiment with the laboratory’s largest resonator. It has underlined “maximum amplitude.”',
     ['Feofan','“I’m sure the discrepancy is fascinating. We’re leaving.”'],
-    'The Dottomon swivels a report toward him. It points at the figure again. Then it points, with considerable emphasis, toward the research wing.',
-    'This is its own experiment, not Zandik’s. It wants the laboratory’s equipment and has apparently decided that its current occupant can work around the noise. Feofan photographs the page for later and closes the nearest route behind the cabinet.',
+    'The Dottomon turns the report toward Feofan and taps the figure, then points toward the research wing.',
+    'It wants to run its own test on the laboratory resonator while Zandik works. Feofan photographs the page for later and shuts the cabinet between them and the research wing.',
     ['Feofan','“Preserved for discussion. After his work is finished.”'],
     'The creature looks between him and the remaining open files. It has not accepted the proposed timetable.'
   ],success:'The papers are left in their correct order. The Dottomon goes home still pointing at the saved photograph, but the argument can now continue somewhere Zandik isn’t working.',
@@ -95,29 +95,29 @@ export const ENCOUNTERS = {
     'It hops to the other side of the table, taking care not to disturb the open pages. Feofan circles the desk. An archivist arrives at the doorway. Feofan has to explain the intrusion and block the next escape route at once.',
     'An emphatic trill directs his attention to a second chart. He declines the distraction; the creature retreats under the rolling ladder anyway. He arrests the ladder with one hand before it rolls into the cabinet.'
   ]},
-  operations:{title:'The smallest person in charge.',lines:[
-    'A dispatch clerk is holding two contradictory requisitions. Another is standing beside a communications terminal with the air of someone waiting for a superior to become less spherical.',
-    'The Dottomon occupies the center of the desk. It taps one requisition, pushes the other aside, and produces a brisk series of chirps. Three deliveries have been reordered in the last minute.',
+  operations:{title:'A new schedule, apparently.',lines:[
+    'A dispatch clerk holds two conflicting requisitions. Another waits by the communications terminal while the coordinator sits in the middle of the desk, tapping one order and chirping at the other.',
+    'Three deliveries have been moved in the last minute. The clerk points to a new pressure demonstration on the schedule.',
     ['Dispatch clerk','“It keeps adding a pressure demonstration to the project schedule.”'],
     ['Feofan','“Has anyone authorized a pressure demonstration?”'],
     ['Dispatch clerk','“It has filled in every field except that one, my lord.”'],
-    'Feofan reads both sheets. The assistant has requisitioned a pressure rig and three canisters for its own elaborate demonstration. The laboratory booking names Zandik as an involuntary audience. Feofan cancels it before the first trolley leaves.',
+    'Feofan checks the papers. The coordinator has requested a pressure rig and three canisters for its own demonstration in Zandik’s laboratory. He cancels the booking before the trolley is loaded.',
     ['Feofan','“Hold the original schedule. No new deliveries to the laboratory.”'],
-    'The Dottomon places both arms on the requisition it prefers. Its huff suggests it intends to escalate the matter. Unfortunately for it, Feofan is the escalation.'
+    'The Dottomon plants both arms on the requisition it wants approved. Feofan takes it away and folds it in half.'
   ],success:'The dispatches are restored before anything reaches the research wing. Feofan sends the self-appointed coordinator home. The clerk very carefully refrains from asking whether it will be returning in an official capacity.',
   failures:[
     'It slides a requisition under his hand, then darts around the terminal. Feofan secures the dispatch switch first. The clerk is waiting for an instruction; Feofan gives it while keeping the fugitive in sight, jaw set.',
     'The creature holds up a neatly corrected timetable as though requesting one final review. Then it disappears behind the in-tray. An outgoing dispatch bell sounds. Feofan stops the clerk from sending the revised order, then checks the far door.',
     'Feofan anticipates the jump toward the communications panel. The Dottomon changes course and lands under the desk. No messages go out, but he has had to lunge between it and a live switch. His heart has not caught up with the successful prevention.'
   ]},
-  service:{title:'A shortcut with objections.',lines:[
-    'A vent cover rests neatly against the wall. Its screws sit in a little row beside it. This is not vandalism. Someone intends to put it back.',
+  service:{title:'Under the vent cover.',lines:[
+    'A vent cover rests against the wall. The screws are lined up beside it, ready to go back in.',
     'Feofan hears a soft scrape overhead and moves to the next junction. The Dottomon drops out of a maintenance opening, sees him waiting, and freezes.',
     ['Feofan','“You’re not the first person to discover the service plan.”'],
     'It looks at the closed door behind him, then at the corridor to his left. He has already secured both routes toward the research areas. The remaining passage only leads back to this junction.',
-    'A rolled sketch falls from its fluff: a turbine, smoke tracers, and a full-speed airflow test inside Zandik’s laboratory. This is its own project. The presence of another researcher has not entered its calculations. A long, offended squeak emerges from the puffball.',
-    ['Feofan','“Yes. An appalling misuse of local knowledge.”'],
-    'It rocks once on its little body, weighing the options. Feofan lowers a hand. An invitation might work. Intercepting the next dash certainly will, though neither of them will enjoy the scramble.'
+    'A rolled sketch slips from its fluff: a turbine, smoke tracers, and plans to test it in Zandik’s laboratory. The Dottomon gives an offended squeak when Feofan takes the page.',
+    ['Feofan','“I know where the vents go. That’s why I’m stopping you.”'],
+    'It rocks on its feet, watching his hand. Feofan waits. If it bolts again, he’ll have to catch it at the next opening.'
   ],success:'Feofan catches the runner before it reaches the open vent. The screws and cover are returned to maintenance; the indignant architect of the shortcut is returned to the penthouse.',
   failures:[
     'The runner slips through the low opening and reappears farther down the same corridor. Feofan has kept it away from the research wing. Keeping it that way means a sharp turn and a sprint to the next opening. He arrives breathing hard.',
@@ -127,9 +127,9 @@ export const ENCOUNTERS = {
   reagents:{title:'One door too close.',lines:[
     'This assistant did not flee from the lobby. It was already here, near the research wing, working through the labels on a locked specialist cabinet. One short connecting passage leads directly to Zandik’s laboratory.',
     'A transport tray holds a mounting bracket and a folded material specification. The Dottomon is reaching for a sealed ampoule of cryostable catalyst. Every item has been chosen for Zandik’s project.',
-    'Its purpose is entirely sincere. Its next intended destination is entirely unacceptable.',
+    'The specialist is trying to get the right materials to Zandik. Feofan understands why. He also knows the laboratory door is only a few steps away.',
     ['Feofan','“He asked for quiet. That is the contribution we’re making today.”'],
-    'The creature taps the specification, then the catalyst. A soft, questioning trill follows. Surely the need for this material is obvious.',
+    'It points to the specification, then the catalyst, and gives him a questioning trill. Feofan nods; he can see why it thinks the materials are needed. The timing is still wrong.',
     'Feofan checks the research-wing door and turns the key. He places the tray on a safe shelf before approaching.',
     ['Feofan','“I know you want to help him. You can start by coming with me.”'],
     'The Dottomon watches his hand. Behind it, the cabinet latch gives a very small click.'
@@ -139,7 +139,7 @@ export const ENCOUNTERS = {
     'The Dottomon squeezes beneath the transport tray and peeks out through the handle. A glass ampoule rolls toward the edge. Feofan catches it and holds still until his grip steadies.',
     'An earnest trill accompanies a fresh attempt to show him the specification. When he reaches closer, it retreats behind the lower shelf. Its arm reappears beside the cabinet latch. Feofan closes the latch first, startled by the tiny click so near his husband’s room.'
   ]},
-  courier:{title:'Nothing addressed to Prime.',lines:[
+  courier:{title:'No sign at the courier station.',lines:[
     'The courier station is warm with wet wool and the smell of sealing wax. Feofan asks the clerk to check the outgoing parcels while he inspects the sorting shelves.',
     ['Clerk','“Would your missing assistant fit in a document tube?”'],
     ['Feofan','“I’m trying very hard not to find out.”'],
@@ -148,7 +148,7 @@ export const ENCOUNTERS = {
     ['Feofan','“Please don’t offer a reward. They’d negotiate.”'],
     'He thanks her and leaves the station marked clear.'
   ]},
-  guardroom:{title:'The watch remains unchallenged.',lines:[
+  guardroom:{title:'No one came through here.',lines:[
     'The guardroom is quiet apart from the turning of a roster page. Feofan checks beneath the benches and behind the spare cloaks while the officer reviews the visitor log.',
     ['Watch officer','“No creatures here, my lord. No unauthorized entries.”'],
     ['Feofan','“And no unusually small additions to the chain of command?”'],
@@ -156,7 +156,7 @@ export const ENCOUNTERS = {
     ['Watch officer','“The chain of command is its usual size.”'],
     'The grate is fastened. The visitor book is untouched. No Dottomon has passed through this room. Feofan asks the watch to keep it that way and returns to the lobby.'
   ]},
-  depot:{title:'A disappointing lack of fugitives.',lines:[
+  depot:{title:'Nothing missing from the depot.',lines:[
     'The depot smells of machine oil and cold iron. Feofan checks the equipment shelves while the quartermaster runs through the day’s visitors.',
     ['Quartermaster','“No small black assistants. One very large man demanding a replacement tripod.”'],
     ['Feofan','“Did he have a blue tuft?”'],

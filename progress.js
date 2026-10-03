@@ -1,4 +1,4 @@
-import {ALL_DOTTOMONS,PALACE_DOTTOMONS} from './data/locations.js?v=0.51';
+import {ALL_DOTTOMONS,PALACE_DOTTOMONS} from './data/locations.js?v=0.52';
 // Persistent collection state is separate from resettable mission state. v0.3 endings migrate in place.
 export const REPORT_KEY='dottomon-recall.reports.v1';
 export const GALLERY_KEY='dottomon-recall.endings.v1';
@@ -6,7 +6,7 @@ export const ACHIEVEMENT_KEY='dottomon-recall.achievements.v1';
 export const ENDING_IDS=Object.freeze(['good','secret','home','breach']);
 export const ACHIEVEMENTS=Object.freeze({
  full_recall:{title:'Full Recall',description:'Discover all four endings.'},
- cold_plunge:{title:'Cold Plunge',description:'Fail a Safe capture at the fountain and land in the water without Dottoling.'},
+ cold_plunge:{title:'Cold Plunge',description:'Miss a Safe capture at the fountain and land in the water while the Dottoling Dottomon gets away.'},
  ahead:{title:'Ahead of Schedule',description:'Recover every mission assistant with at least 05:00 remaining.'},
  no_help:{title:'No Outside Help',description:'Recover every mission assistant without using a hint.'}
 });

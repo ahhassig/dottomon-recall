@@ -8,12 +8,12 @@ export const CAPTURE_FLAVOR = {
   reagents:{risky:'He closes the cabinet with one hand and collects the specialist with the other, just before its arm reaches the release catch. The tiny click is much too close to Zandik’s door. Feofan holds still, listening, until he is certain the room beyond is quiet.',return:'He checks the seal, the latch, and the research door. Quiet is still possible.'}
 };
 export const DATE_FOLLOW = [
-  'The second Dottomon looks at the empty chair. Then at its untouched tea. After a small, resigned huff, it folds its napkin, gathers the last pastry, and climbs into Feofan’s waiting hand.',
-  ['Feofan','“Oh, now we’re being reasonable.”'],
-  'It points firmly toward home. Its partner is there. The venue has become irrelevant.'
+  'The second Dottomon looks at the empty chair and untouched tea, then gives a small huff. It folds its napkin, takes the last pastry, and climbs into Feofan’s hand.',
+  ['Feofan','“That’s it? We’re done?”'],
+  'It points toward home. Its partner is waiting there.'
 ];
 export const SMOKING = [
-  'He steps out of the traffic and sets his back against a cold wall. The lighter takes concentration he would rather spend elsewhere. He waits until his hands settle, puts the cigarette out, and checks his route. One minute gone.',
-  'For a moment, he cannot make himself hurry. He stops somewhere quiet, shoulders rigid, and falls back on the old habit. The cigarette burns down while the search waits. When he can continue, he does.',
-  'He knows the next move. Knowing it and being ready to make it are different things. Feofan stops, lights a cigarette with unsteady fingers, and gives himself the minute he cannot avoid taking.'
+  'He steps out of the traffic and leans against a cold wall. His hands are still shaking, so he waits for them to settle before he puts the cigarette out and checks his route.',
+  'Feofan stops in a quiet spot and smokes. He waits until he can focus on the next part of the search, then heads back.',
+  'He lights a cigarette with unsteady fingers and takes the minute he needs before moving on.'
 ];

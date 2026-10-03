@@ -1,10 +1,18 @@
-# DOTTOMON RECALL · v0.51
+# DOTTOMON RECALL · v0.52
 
-Seven missing. Twenty minutes. One migraine.
+Seven missing. Twenty minutes. Keep the Palace quiet.
 
 **[Play DOTTOMON RECALL](https://ahhassig.github.io/dottomon-recall/)** — public, no account required.
 
-A small static narrative game for Lex’s Genshin AU. Feofan must recover Zandik’s escaped assistants while keeping his afternoon quiet. HTML, CSS, and vanilla JavaScript; no framework, build, backend, tracking, or required external service. All graphics are original code-native artwork, including the soft blue tufts and Dottoling’s cat costume. No official image assets are bundled.
+A small static narrative game for Lex’s Genshin AU. Feofan must recover Zandik’s escaped assistants while keeping his afternoon quiet. HTML, CSS, and vanilla JavaScript; no framework, build, backend, tracking, or required external service. All graphics are original code-native artwork, including the soft blue tufts and the Dottoling Dottomon’s cat costume. No official image assets are bundled.
+
+## Version 0.52 — writing and visual cleanup
+
+- Removed canned ending copy and rewrote encounter and capture results so the scene leads into what Feofan actually does. The date partner’s voluntary follow-through reads as part of the same moment as the first recovery.
+- Added more private, familiar Feofan/Zandik moments in the Good, Secret, and Bad endings. The Secret Ending treats Feofan’s distress seriously. In “You Had One Job,” Zandik goes to retrieve the missing assistants, then heads to the laboratory.
+- The Good Ending image shows twenty Dottomons and now carries an XX seal. The Dottoling is named as a Dottoling Dottomon in descriptions and interface copy.
+- Redrew Feofan’s speaker emblem as glasses with chains, removed the extra oval behind the Dottomon body, and kept the beak and soft blue tuft.
+- Capture odds, the mission clock, stress, ending rules, placements, and all other gameplay values are unchanged.
 
 ## Version 0.51 — character, dialogue and Palace polish
 
@@ -92,4 +100,4 @@ Dottomons are intelligent preserved continuity structures, not pets. They commun
 
 ## Before v1.0
 
-Use v0.52 / v0.53 patches for player-reported bugs, small prose corrections and measured balance changes. The 20-minute timer stays in place until real playtest feedback supports a change. Physical iPhone/Safari QA and repeated human playtests remain useful release checks. Optional audio and large painted illustrations were not added to v0.5; the game stays silent and lightweight.
+Use small patch releases after v0.52 for player-reported bugs, prose corrections and measured balance changes. The 20-minute timer stays in place until real playtest feedback supports a change. Physical iPhone/Safari QA and repeated human playtests remain useful release checks. Optional audio and large painted illustrations were not added to v0.5; the game stays silent and lightweight.
